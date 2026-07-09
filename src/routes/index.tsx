@@ -59,10 +59,10 @@ export const Route = createFileRoute("/")({
         content:
           "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business.",
       },
-      { property: "og:title", content: "SoRa Innovative Solutions" },
+      { property: "og:title", content: "SoRa Innovative Solutions — Innovate • Create • Deliver" },
       {
         property: "og:description",
-        content: "Modern websites, branding, and content that grows your business.",
+        content: "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business.",
       },
       { property: "og:url", content: "/" },
     ],

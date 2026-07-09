@@ -78,14 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SoRa Innovative Solutions — Innovate, Create, Deliver" },
+      { title: "SoRa Innovative Solutions — Innovate • Create • Deliver" },
       { name: "description", content: "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business." },
       { name: "author", content: "SoRa Innovative Solutions" },
-      { property: "og:title", content: "SoRa Innovative Solutions" },
-      { property: "og:description", content: "Modern websites, branding, and content that grows your business." },
+      { property: "og:title", content: "SoRa Innovative Solutions — Innovate • Create • Deliver" },
+      { property: "og:description", content: "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SoRa Innovative Solutions" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "SoRa Innovative Solutions — Innovate • Create • Deliver" },
+      { name: "twitter:description", content: "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e93e8ddf-f768-47d4-8922-bfb18e79d9b9/id-preview-e10e13cb--052a58c7-a4cf-45aa-a768-5c4eee8282f7.lovable.app-1783584734613.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e93e8ddf-f768-47d4-8922-bfb18e79d9b9/id-preview-e10e13cb--052a58c7-a4cf-45aa-a768-5c4eee8282f7.lovable.app-1783584734613.png" },
     ],
     links: [
       {
