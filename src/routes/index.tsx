@@ -435,6 +435,12 @@ function Hero() {
             <BrandButton href="#portfolio" variant="ghost">
               View Portfolio
             </BrandButton>
+            <BrandButton
+              variant="gold"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-sora-offer"))}
+            >
+              <Gift className="h-4 w-4" /> See SoRa Offer
+            </BrandButton>
           </div>
 
           <div className="mt-16 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 text-center sm:gap-12">
