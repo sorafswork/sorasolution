@@ -25,6 +25,7 @@ import {
   Send,
   LifeBuoy,
 } from "lucide-react";
+import { Gift } from "lucide-react";
 import logo from "@/assets/sora-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import p1 from "@/assets/p1.jpg";
@@ -293,6 +294,18 @@ function Nav() {
                 {n.label}
               </motion.a>
             ))}
+            <motion.button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-sora-offer"))}
+              whileHover={{ y: -3, scale: 1.08 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="relative ml-1 inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold hover:bg-gold/20"
+            >
+              <Gift className="h-3.5 w-3.5" />
+              Offer
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 animate-ping rounded-full bg-gold" />
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-gold" />
+            </motion.button>
           </nav>
           <div className="hidden md:block">
             <BrandButton href="#contact" variant="primary" className="!py-2.5 !px-5">
@@ -325,6 +338,15 @@ function Nav() {
                   {n.label}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  window.dispatchEvent(new CustomEvent("open-sora-offer"));
+                }}
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3 text-sm font-semibold text-gold"
+              >
+                <Gift className="h-4 w-4" /> View Offer
+              </button>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
@@ -412,6 +434,12 @@ function Hero() {
             </BrandButton>
             <BrandButton href="#portfolio" variant="ghost">
               View Portfolio
+            </BrandButton>
+            <BrandButton
+              variant="gold"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-sora-offer"))}
+            >
+              <Gift className="h-4 w-4" /> See SoRa Offer
             </BrandButton>
           </div>
 
@@ -1152,6 +1180,153 @@ function Footer() {
 
 /* ---------- Page ---------- */
 
+function SoRaOfferModal() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-sora-offer", handler);
+    return () => window.removeEventListener("open-sora-offer", handler);
+  }, []);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const perks = [
+    "30% OFF on your first project",
+    "Free logo concept with any website",
+    "Priority delivery & unlimited revisions",
+    "Complimentary 1-month support",
+  ];
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 z-[120] flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-background/80 backdrop-blur-md"
+            onClick={() => setOpen(false)}
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7, y: 40, rotate: -3 }}
+            animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.85, y: 30 }}
+            transition={{ type: "spring", stiffness: 220, damping: 22 }}
+            className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-white/10 bg-card p-1"
+            style={{
+              backgroundImage:
+                "linear-gradient(var(--card), var(--card)), var(--gradient-brand)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
+            }}
+          >
+            {/* Glow blobs */}
+            <div className="pointer-events-none absolute -top-24 -left-16 h-64 w-64 rounded-full bg-primary/40 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-gold/30 blur-3xl" />
+
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close"
+              className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted-foreground hover:bg-white/10 hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <div className="relative p-8 sm:p-10 text-center">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.15, type: "spring", stiffness: 200, damping: 12 }}
+                className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-brand shadow-[0_10px_40px_-10px_var(--primary)]"
+              >
+                <Gift className="h-8 w-8 text-white" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-gold"
+              >
+                <Sparkles className="h-3 w-3" /> Limited Time
+              </motion.div>
+
+              <motion.h3
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className="text-3xl font-semibold tracking-tight sm:text-4xl"
+              >
+                Exclusive <span className="text-gradient-brand">SoRa Offer</span>
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground sm:text-base"
+              >
+                Launch your brand with a premium package — built to make your business shine.
+              </motion.p>
+
+              <ul className="mx-auto mt-6 max-w-sm space-y-2.5 text-left">
+                {perks.map((p, i) => (
+                  <motion.li
+                    key={p}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35 + i * 0.08 }}
+                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-foreground"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                    <span>{p}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+              >
+                <BrandButton
+                  variant="primary"
+                  onClick={() => {
+                    setOpen(false);
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Claim Offer <ArrowRight className="h-4 w-4" />
+                </BrandButton>
+                <BrandButton variant="ghost" onClick={() => setOpen(false)}>
+                  Maybe later
+                </BrandButton>
+              </motion.div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function Index() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -1172,6 +1347,7 @@ function Index() {
       </main>
       <Footer />
       <BackToTop />
+      <SoRaOfferModal />
     </div>
   );
 }
