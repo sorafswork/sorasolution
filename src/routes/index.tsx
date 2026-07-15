@@ -232,7 +232,7 @@ function BackToTop() {
 const NAV = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "#portfolio", label: "Works" },
   { href: "#process", label: "Process" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
@@ -254,25 +254,44 @@ function Nav() {
     >
       <div className="mx-auto max-w-7xl px-4">
         <div
-          className={`flex items-center justify-between rounded-full border border-white/10 px-4 py-2.5 transition-all ${
+          className={`relative flex items-center justify-between rounded-full px-4 py-2.5 transition-all ${
             scrolled ? "glass-card shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)]" : "bg-transparent"
           }`}
+          style={{
+            border: "1px solid transparent",
+            backgroundImage: scrolled
+              ? "linear-gradient(var(--card), var(--card)), var(--gradient-brand)"
+              : "linear-gradient(transparent, transparent), var(--gradient-brand)",
+            backgroundOrigin: "border-box",
+            backgroundClip: "padding-box, border-box",
+          }}
         >
-          <a href="#top" className="flex items-center gap-2.5">
-            <img src={logo} alt="SoRa" width={36} height={36} className="h-9 w-9" />
-            <span className="font-display text-base font-semibold tracking-tight">
-              SoRa <span className="text-muted-foreground font-normal">Innovative</span>
+          <a href="#top" className="group flex items-center gap-2.5">
+            <motion.img
+              src={logo}
+              alt="SoRa"
+              width={36}
+              height={36}
+              className="h-9 w-9 drop-shadow-[0_0_12px_var(--primary)]"
+              animate={{ rotate: [0, 6, -6, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <span className="font-display text-base font-semibold tracking-tight bg-gradient-brand bg-clip-text text-transparent">
+              SoRa Innovative
             </span>
           </a>
           <nav className="hidden items-center gap-1 md:flex">
             {NAV.map((n) => (
-              <a
+              <motion.a
                 key={n.href}
                 href={n.href}
-                className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                whileHover={{ y: -3, scale: 1.08 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                className="relative rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground hover:bg-white/5"
               >
                 {n.label}
-              </a>
+              </motion.a>
             ))}
           </nav>
           <div className="hidden md:block">
@@ -360,19 +379,31 @@ function Hero() {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-muted-foreground backdrop-blur"
           >
             <Sparkles className="h-3.5 w-3.5 text-gold" />
-            Innovate • Create • Deliver
+            Freelance • Video • Photography • Design
           </motion.div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="mb-5 text-sm sm:text-base font-medium tracking-wide text-foreground/90"
+          >
+            👋 Welcome to{" "}
+            <span className="bg-gradient-brand bg-clip-text text-transparent font-semibold">
+              SoRa Innovative Solutions
+            </span>
+          </motion.p>
+
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-            Building{" "}
-            <span className="text-gradient-brand">Digital Experiences</span>{" "}
-            That Inspire Growth.
+            Freelance{" "}
+            <span className="text-gradient-brand">Video & Photo</span>{" "}
+            Crafted Professionally.
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            SoRa Innovative Solutions helps startups, businesses, and entrepreneurs
-            build a strong digital presence through modern websites, creative
-            branding, professional graphic design, and compelling content.
+            From cinematic edits and product photography to modern websites,
+            branding, and content — SoRa Innovative Solutions turns your ideas
+            into scroll-stopping visuals and digital experiences.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -1032,15 +1063,27 @@ function ContactRow({
 
 function Footer() {
   return (
-    <footer className="relative border-t border-white/10 py-16">
-      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 h-48 bg-[radial-gradient(ellipse_at_center,var(--primary)_0%,transparent_60%)] opacity-20" />
+    <footer className="relative py-16">
+      <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-brand" />
+      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 h-48 bg-[radial-gradient(ellipse_at_center,var(--primary)_0%,transparent_60%)] opacity-30" />
+      <div className="pointer-events-none absolute inset-x-0 -bottom-20 -z-10 h-48 bg-[radial-gradient(ellipse_at_center,var(--gold)_0%,transparent_60%)] opacity-20" />
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <img src={logo} alt="SoRa" width={44} height={44} className="h-11 w-11" />
+              <motion.img
+                src={logo}
+                alt="SoRa"
+                width={44}
+                height={44}
+                className="h-11 w-11 drop-shadow-[0_0_16px_var(--primary)]"
+                animate={{ rotate: [0, 8, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
               <div>
-                <div className="font-display text-lg font-semibold">SoRa Innovative Solutions</div>
+                <div className="font-display text-lg font-semibold bg-gradient-brand bg-clip-text text-transparent">
+                  SoRa Innovative Solutions
+                </div>
                 <div className="text-xs text-muted-foreground">Innovate • Create • Deliver</div>
               </div>
             </div>
@@ -1051,9 +1094,21 @@ function Footer() {
           <div>
             <div className="text-sm font-semibold uppercase tracking-widest text-gold">Quick Links</div>
             <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-              {["Services", "Portfolio", "Contact", "Privacy Policy", "Terms & Conditions"].map((l) => (
-                <li key={l}>
-                  <a href={`#${l.toLowerCase().split(" ")[0]}`} className="hover:text-foreground">{l}</a>
+              {[
+                { label: "Services", href: "#services" },
+                { label: "Works", href: "#portfolio" },
+                { label: "Contact", href: "#contact" },
+                { label: "Privacy Policy", href: "#" },
+                { label: "Terms & Conditions", href: "#" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <motion.a
+                    href={l.href}
+                    whileHover={{ x: 6, scale: 1.05 }}
+                    className="inline-block hover:text-foreground transition-colors"
+                  >
+                    {l.label}
+                  </motion.a>
                 </li>
               ))}
             </ul>
@@ -1065,9 +1120,28 @@ function Footer() {
               <li>+91 77087 04523</li>
               <li>@sora_official_id</li>
             </ul>
+            <div className="mt-5 flex gap-3">
+              {[
+                { icon: Instagram, href: "https://instagram.com/sora_official_id" },
+                { icon: MessageCircle, href: "https://wa.me/917708704523" },
+                { icon: Mail, href: "mailto:sorafs.work@gmail.com" },
+              ].map(({ icon: Icon, href }, i) => (
+                <motion.a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ y: -4, scale: 1.15, rotate: -6 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-brand text-white shadow-[0_10px_25px_-10px_var(--primary)]"
+                >
+                  <Icon className="h-4 w-4" />
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 pt-6 text-xs text-muted-foreground sm:flex-row" style={{ borderTop: "1px solid transparent", backgroundImage: "linear-gradient(var(--background), var(--background)), var(--gradient-brand)", backgroundOrigin: "border-box", backgroundClip: "padding-box, border-box" }}>
           <div>Copyright © 2026 SoRa Innovative Solutions. All Rights Reserved.</div>
           <div>Crafted with care.</div>
         </div>
