@@ -25,6 +25,7 @@ import {
   Send,
   LifeBuoy,
 } from "lucide-react";
+import { Gift } from "lucide-react";
 import logo from "@/assets/sora-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import p1 from "@/assets/p1.jpg";
@@ -293,6 +294,18 @@ function Nav() {
                 {n.label}
               </motion.a>
             ))}
+            <motion.button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-sora-offer"))}
+              whileHover={{ y: -3, scale: 1.08 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="relative ml-1 inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold hover:bg-gold/20"
+            >
+              <Gift className="h-3.5 w-3.5" />
+              Offer
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 animate-ping rounded-full bg-gold" />
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-gold" />
+            </motion.button>
           </nav>
           <div className="hidden md:block">
             <BrandButton href="#contact" variant="primary" className="!py-2.5 !px-5">
@@ -325,6 +338,15 @@ function Nav() {
                   {n.label}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  window.dispatchEvent(new CustomEvent("open-sora-offer"));
+                }}
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3 text-sm font-semibold text-gold"
+              >
+                <Gift className="h-4 w-4" /> View Offer
+              </button>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
