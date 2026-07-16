@@ -1,0 +1,372 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "motion/react";
+import { ArrowRight, Play, Sparkles, CheckCircle2, Star } from "lucide-react";
+import heroBg from "@/assets/hero-bg.jpg";
+import p1 from "@/assets/p1.jpg";
+import p2 from "@/assets/p2.jpg";
+import p3 from "@/assets/p3.jpg";
+import { BrandLink } from "@/components/site/brand-button";
+import { SectionHeader } from "@/components/site/section-header";
+import { Counter } from "@/components/site/counter";
+import { TechMarquee } from "@/components/site/marquee";
+import { SERVICES, STATS, WHY_US, TESTIMONIALS } from "@/lib/site-data";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "SoRa Innovative Solutions — Innovate · Create · Deliver" },
+      { name: "description", content: "Premium digital agency crafting websites, branding, graphic design, video, and content that grow your business." },
+      { property: "og:title", content: "SoRa Innovative Solutions" },
+      { property: "og:description", content: "Premium digital agency crafting websites, branding, and content that grow your business." },
+    ],
+  }),
+  component: Home,
+});
+
+function Home() {
+  return (
+    <>
+      <Hero />
+      <TrustStrip />
+      <StatsBar />
+      <ServicesPreview />
+      <WhyUs />
+      <TechStack />
+      <PortfolioPreview />
+      <TestimonialsPreview />
+      <FinalCTA />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden pt-8 md:pt-16">
+      <div className="absolute inset-0 -z-10">
+        <img src={heroBg} alt="" className="h-full w-full object-cover opacity-25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+      </div>
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              Welcome to SoRa Innovative Solutions
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]"
+            >
+              Building{" "}
+              <span className="text-gradient-brand">Digital Experiences</span>{" "}
+              That Inspire Growth.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
+            >
+              SoRa Innovative Solutions empowers startups, entrepreneurs, and businesses
+              with premium websites, branding, graphic design, and content strategies
+              that drive measurable growth.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mt-8 flex flex-wrap items-center gap-3"
+            >
+              <BrandLink to="/contact" variant="primary">
+                Get Started <ArrowRight className="h-4 w-4" />
+              </BrandLink>
+              <BrandLink to="/works" variant="outline">
+                <Play className="h-4 w-4" /> View Portfolio
+              </BrandLink>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="mt-8 flex flex-wrap gap-4 text-sm text-muted-foreground"
+            >
+              {["Modern Websites", "Premium Branding", "Fast Delivery", "SEO Optimized"].map((b) => (
+                <div key={b} className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-gold" /> {b}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Device mockup */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.1 }}
+            className="relative mx-auto w-full max-w-lg"
+          >
+            <div className="absolute -inset-10 bg-primary/25 blur-3xl rounded-full" />
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative rounded-3xl border border-border bg-card shadow-elevated overflow-hidden"
+            >
+              <div className="flex items-center gap-1.5 border-b border-border/60 px-4 py-2.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-gold" />
+                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+                <span className="ml-3 text-xs text-muted-foreground">sora-solutions.com</span>
+              </div>
+              <img src={p1} alt="" className="w-full aspect-[16/10] object-cover" />
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-8 -left-6 w-40 rounded-2xl border border-border bg-card shadow-elevated overflow-hidden"
+            >
+              <img src={p2} alt="" className="w-full aspect-[9/16] object-cover" />
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-6 -right-4 w-32 rounded-xl border border-border bg-card shadow-elevated overflow-hidden"
+            >
+              <img src={p3} alt="" className="w-full aspect-[4/3] object-cover" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustStrip() {
+  return (
+    <section className="border-y border-border/60 bg-card/30">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 text-center">
+        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          Trusted by startups, local businesses, creators & entrepreneurs
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function StatsBar() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-16">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        {STATS.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+            className="glass-card rounded-2xl border p-5 text-center"
+          >
+            <div className="font-display text-3xl md:text-4xl font-bold text-gradient-brand">
+              <Counter to={s.value} suffix={s.suffix} />
+            </div>
+            <div className="mt-1 text-xs text-muted-foreground">{s.label}</div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ServicesPreview() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="What we do"
+        title={<>Premium services, <span className="text-gradient-gold">delivered end-to-end</span></>}
+        subtitle="From strategy to launch — everything your brand needs, under one roof."
+      />
+      <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {SERVICES.slice(0, 6).map((s, i) => (
+          <motion.div
+            key={s.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: i * 0.05 }}
+            whileHover={{ y: -6 }}
+            className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-shadow hover:shadow-glow-blue"
+          >
+            <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white">
+              <s.icon className="h-6 w-6" />
+            </div>
+            <h3 className="mt-4 font-display text-xl font-bold">{s.title}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-10 text-center">
+        <BrandLink to="/services" variant="outline">
+          Explore all services <ArrowRight className="h-4 w-4" />
+        </BrandLink>
+      </div>
+    </section>
+  );
+}
+
+function WhyUs() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="Why SoRa"
+        title={<>Built on <span className="text-gradient-brand">quality</span>, backed by <span className="text-gradient-gold">care</span>.</>}
+      />
+      <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
+        {WHY_US.map((w, i) => (
+          <motion.div
+            key={w.title}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.04 }}
+            className="glass-card rounded-2xl border p-5 flex items-center gap-3"
+          >
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
+              <w.icon className="h-5 w-5" />
+            </div>
+            <div className="font-medium">{w.title}</div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function TechStack() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-16">
+      <SectionHeader
+        eyebrow="Technologies"
+        title={<>The <span className="text-gradient-brand">modern stack</span> we build with</>}
+      />
+      <div className="mt-10">
+        <TechMarquee />
+      </div>
+    </section>
+  );
+}
+
+function PortfolioPreview() {
+  const shots = [p1, p2, p3];
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="Recent work"
+        title={<>Selected <span className="text-gradient-gold">works</span></>}
+        subtitle="A glimpse of what we've been crafting lately."
+      />
+      <div className="mt-12 grid gap-4 md:grid-cols-3">
+        {shots.map((img, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+            whileHover={{ y: -6 }}
+            className="group relative overflow-hidden rounded-3xl border border-border bg-card"
+          >
+            <img src={img} alt="" className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="text-xs text-gold uppercase tracking-widest">Case study</div>
+              <div className="mt-1 font-display text-lg font-bold">Project #{i + 1}</div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-8 text-center">
+        <BrandLink to="/works" variant="outline">
+          See all works <ArrowRight className="h-4 w-4" />
+        </BrandLink>
+      </div>
+    </section>
+  );
+}
+
+function TestimonialsPreview() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="Loved by clients"
+        title={<>What our <span className="text-gradient-brand">clients</span> say</>}
+      />
+      <div className="mt-12 grid gap-5 md:grid-cols-3">
+        {TESTIMONIALS.slice(0, 3).map((t, i) => (
+          <motion.div
+            key={t.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+            className="glass-card rounded-3xl border p-6"
+          >
+            <div className="flex gap-0.5 text-gold">
+              {Array.from({ length: 5 }).map((_, j) => (
+                <Star key={j} className="h-4 w-4 fill-current" />
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-foreground/90 leading-relaxed">"{t.quote}"</p>
+            <div className="mt-6 flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-gradient-brand" />
+              <div>
+                <div className="font-semibold text-sm">{t.name}</div>
+                <div className="text-xs text-muted-foreground">{t.role}</div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-16 text-center shadow-elevated">
+        <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-primary/30 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 h-72 w-72 rounded-full bg-gold/25 blur-3xl" />
+        <div className="relative">
+          <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold">
+            Let's build together
+          </div>
+          <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-tight">
+            Ready to launch something{" "}
+            <span className="text-gradient-brand">unforgettable?</span>
+          </h2>
+          <p className="mt-4 mx-auto max-w-xl text-muted-foreground">
+            Tell us about your project — we'll respond within 24 hours with a plan.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <BrandLink to="/contact" variant="primary">
+              Get Free Quote <ArrowRight className="h-4 w-4" />
+            </BrandLink>
+            <BrandLink to="/services" variant="gold">
+              View Services
+            </BrandLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
