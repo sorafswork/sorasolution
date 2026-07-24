@@ -51,7 +51,7 @@ export function SiteNav() {
             />
             <span className="hidden sm:block font-display font-bold text-lg leading-none">
               <span className="text-gradient-brand">SoRa</span>
-              <span className="text-foreground/90"> Solutions</span>
+              <span className="text-foreground/90"> Innovative Solution</span>
             </span>
           </Link>
 
