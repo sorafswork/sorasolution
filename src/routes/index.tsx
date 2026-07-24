@@ -46,6 +46,23 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
         <img src={heroBg} alt="" className="h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+        {/* Moving video-like aurora */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl animate-spin-slow"
+          style={{
+            background:
+              "conic-gradient(from 0deg, oklch(0.56 0.22 264 / 0.55), oklch(0.62 0.26 310 / 0.55), oklch(0.72 0.20 200 / 0.55), oklch(0.82 0.16 87 / 0.45), oklch(0.56 0.22 264 / 0.55))",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 animate-aurora opacity-70"
+          style={{
+            backgroundImage:
+              "radial-gradient(600px 400px at 20% 30%, oklch(0.62 0.26 310 / 0.35), transparent 60%), radial-gradient(500px 400px at 80% 60%, oklch(0.72 0.20 200 / 0.30), transparent 60%)",
+          }}
+        />
       </div>
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -190,6 +207,32 @@ function StatsBar() {
 function ServicesPreview() {
   return (
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      {/* Banner image for services section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="relative mb-12 overflow-hidden rounded-3xl border border-border shadow-elevated"
+      >
+        <img
+          src={servicesBanner}
+          alt="Premium digital services delivered end-to-end"
+          width={1920}
+          height={720}
+          loading="lazy"
+          className="h-48 md:h-72 w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="px-6 md:px-12 max-w-2xl">
+            <div className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-gold">What we do</div>
+            <h3 className="mt-2 font-display text-2xl md:text-4xl font-bold leading-tight">
+              Premium services, <span className="text-gradient-brand">delivered end-to-end</span>
+            </h3>
+          </div>
+        </div>
+      </motion.div>
       <SectionHeader
         eyebrow="What we do"
         title={<>Premium services, <span className="text-gradient-gold">delivered end-to-end</span></>}
