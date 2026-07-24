@@ -89,7 +89,7 @@ export function OfferModal() {
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-white shadow-glow-blue"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-blue"
                 >
                   Claim Offer <ArrowRight className="h-4 w-4" />
                 </Link>

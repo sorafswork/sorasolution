@@ -35,7 +35,7 @@ function Process() {
               whileHover={{ y: -3 }}
               className="glass-card rounded-2xl border p-5 flex items-start gap-4"
             >
-              <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-glow-blue">
+              <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow-blue">
                 <step.icon className="h-5 w-5" />
               </div>
               <div>
