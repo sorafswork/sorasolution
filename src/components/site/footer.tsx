@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Instagram, Mail, Phone, MessageCircle, Github, ArrowUpRight } from "lucide-react";
-import logo from "@/assets/sora-logo.png";
+import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
+const logo = logoAsset.url;
 import { NAV_LINKS } from "./nav";
 
 const SERVICES = [
