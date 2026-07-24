@@ -5,6 +5,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import p1 from "@/assets/p1.jpg";
 import p2 from "@/assets/p2.jpg";
 import p3 from "@/assets/p3.jpg";
+import servicesBanner from "@/assets/services-banner.jpg";
 import { BrandLink } from "@/components/site/brand-button";
 import { SectionHeader } from "@/components/site/section-header";
 import { Counter } from "@/components/site/counter";
@@ -14,10 +15,10 @@ import { SERVICES, STATS, WHY_US, TESTIMONIALS } from "@/lib/site-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SoRa Innovative Solutions — Innovate · Create · Deliver" },
-      { name: "description", content: "Premium digital agency crafting websites, branding, graphic design, video, and content that grow your business." },
-      { property: "og:title", content: "SoRa Innovative Solutions" },
-      { property: "og:description", content: "Premium digital agency crafting websites, branding, and content that grow your business." },
+      { title: "SoRa Innovative Solution — Your Vision. Our Innovation." },
+      { name: "description", content: "Start your journey with SoRa Innovative Solution — premium websites, branding, video, and content that grow your business." },
+      { property: "og:title", content: "SoRa Innovative Solution" },
+      { property: "og:description", content: "Your Vision. Our Innovation. Premium digital services delivered end-to-end." },
     ],
   }),
   component: Home,
@@ -55,7 +56,7 @@ function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold"
             >
               <Sparkles className="h-3.5 w-3.5" />
-              Welcome to SoRa Innovative Solutions
+              Welcome to SoRa Innovative Solution
             </motion.div>
 
             <motion.h1
@@ -64,9 +65,8 @@ function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]"
             >
-              Building{" "}
-              <span className="text-gradient-brand">Digital Experiences</span>{" "}
-              That Inspire Growth.
+              Start your journey with{" "}
+              <span className="text-gradient-brand">SoRa Innovative Solution</span>
             </motion.h1>
 
             <motion.p
@@ -75,9 +75,10 @@ function Hero() {
               transition={{ delay: 0.15 }}
               className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
             >
-              SoRa Innovative Solutions empowers startups, entrepreneurs, and businesses
-              with premium websites, branding, graphic design, and content strategies
-              that drive measurable growth.
+              <span className="font-display text-xl md:text-2xl text-foreground">Your Vision. <span className="text-gradient-gold">Our Innovation.</span></span>
+              <br />
+              Premium websites, branding, graphic design, and content strategies that
+              turn ambitious ideas into measurable growth.
             </motion.p>
 
             <motion.div
