@@ -2,7 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState } from "react";
 import { Menu, X, Gift, ArrowRight } from "lucide-react";
-import logo from "@/assets/sora-logo.png";
+import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
+const logo = logoAsset.url;
 import { cn } from "@/lib/utils";
 
 export const NAV_LINKS = [
