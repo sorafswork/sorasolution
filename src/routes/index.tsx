@@ -5,6 +5,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import p1 from "@/assets/p1.jpg";
 import p2 from "@/assets/p2.jpg";
 import p3 from "@/assets/p3.jpg";
+import servicesBanner from "@/assets/services-banner.jpg";
 import { BrandLink } from "@/components/site/brand-button";
 import { SectionHeader } from "@/components/site/section-header";
 import { Counter } from "@/components/site/counter";
@@ -14,10 +15,10 @@ import { SERVICES, STATS, WHY_US, TESTIMONIALS } from "@/lib/site-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SoRa Innovative Solutions — Innovate · Create · Deliver" },
-      { name: "description", content: "Premium digital agency crafting websites, branding, graphic design, video, and content that grow your business." },
-      { property: "og:title", content: "SoRa Innovative Solutions" },
-      { property: "og:description", content: "Premium digital agency crafting websites, branding, and content that grow your business." },
+      { title: "SoRa Innovative Solution — Your Vision. Our Innovation." },
+      { name: "description", content: "Start your journey with SoRa Innovative Solution — premium websites, branding, video, and content that grow your business." },
+      { property: "og:title", content: "SoRa Innovative Solution" },
+      { property: "og:description", content: "Your Vision. Our Innovation. Premium digital services delivered end-to-end." },
     ],
   }),
   component: Home,
@@ -45,6 +46,23 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
         <img src={heroBg} alt="" className="h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+        {/* Moving video-like aurora */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl animate-spin-slow"
+          style={{
+            background:
+              "conic-gradient(from 0deg, oklch(0.56 0.22 264 / 0.55), oklch(0.62 0.26 310 / 0.55), oklch(0.72 0.20 200 / 0.55), oklch(0.82 0.16 87 / 0.45), oklch(0.56 0.22 264 / 0.55))",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 animate-aurora opacity-70"
+          style={{
+            backgroundImage:
+              "radial-gradient(600px 400px at 20% 30%, oklch(0.62 0.26 310 / 0.35), transparent 60%), radial-gradient(500px 400px at 80% 60%, oklch(0.72 0.20 200 / 0.30), transparent 60%)",
+          }}
+        />
       </div>
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -55,7 +73,7 @@ function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold"
             >
               <Sparkles className="h-3.5 w-3.5" />
-              Welcome to SoRa Innovative Solutions
+              Welcome to SoRa Innovative Solution
             </motion.div>
 
             <motion.h1
@@ -64,9 +82,8 @@ function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]"
             >
-              Building{" "}
-              <span className="text-gradient-brand">Digital Experiences</span>{" "}
-              That Inspire Growth.
+              Start your journey with{" "}
+              <span className="text-gradient-brand">SoRa Innovative Solution</span>
             </motion.h1>
 
             <motion.p
@@ -75,9 +92,10 @@ function Hero() {
               transition={{ delay: 0.15 }}
               className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
             >
-              SoRa Innovative Solutions empowers startups, entrepreneurs, and businesses
-              with premium websites, branding, graphic design, and content strategies
-              that drive measurable growth.
+              <span className="font-display text-xl md:text-2xl text-foreground">Your Vision. <span className="text-gradient-gold">Our Innovation.</span></span>
+              <br />
+              Premium websites, branding, graphic design, and content strategies that
+              turn ambitious ideas into measurable growth.
             </motion.p>
 
             <motion.div
@@ -189,6 +207,32 @@ function StatsBar() {
 function ServicesPreview() {
   return (
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      {/* Banner image for services section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="relative mb-12 overflow-hidden rounded-3xl border border-border shadow-elevated"
+      >
+        <img
+          src={servicesBanner}
+          alt="Premium digital services delivered end-to-end"
+          width={1920}
+          height={720}
+          loading="lazy"
+          className="h-48 md:h-72 w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="px-6 md:px-12 max-w-2xl">
+            <div className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-gold">What we do</div>
+            <h3 className="mt-2 font-display text-2xl md:text-4xl font-bold leading-tight">
+              Premium services, <span className="text-gradient-brand">delivered end-to-end</span>
+            </h3>
+          </div>
+        </div>
+      </motion.div>
       <SectionHeader
         eyebrow="What we do"
         title={<>Premium services, <span className="text-gradient-gold">delivered end-to-end</span></>}

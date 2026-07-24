@@ -31,7 +31,7 @@ export function SiteFooter() {
               />
               <span className="font-display font-bold text-xl">
                 <span className="text-gradient-brand">SoRa</span>
-                <span className="text-foreground/90"> Innovative Solutions</span>
+                <span className="text-foreground/90"> Innovative Solution</span>
               </span>
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
@@ -96,7 +96,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border/60 pt-6 text-xs text-muted-foreground">
-          <p>© 2026 SoRa Innovative Solutions. All rights reserved.</p>
+          <p>© 2026 SoRa Innovative Solution. All rights reserved.</p>
           <p className="tracking-widest uppercase">
             <span className="text-gradient-brand font-semibold">Innovate</span> ·{" "}
             <span className="text-gradient-gold font-semibold">Create</span> ·{" "}

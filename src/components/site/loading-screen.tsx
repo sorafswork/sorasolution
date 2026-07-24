@@ -51,7 +51,7 @@ export function LoadingScreen() {
           </motion.div>
           <div className="mt-8 font-display text-lg">
             <span className="text-gradient-brand font-bold">SoRa</span>{" "}
-            <span className="text-foreground/80">Innovative Solutions</span>
+            <span className="text-foreground/80">Innovative Solution</span>
           </div>
           <div className="mt-6 h-1 w-64 overflow-hidden rounded-full bg-muted">
             <motion.div
