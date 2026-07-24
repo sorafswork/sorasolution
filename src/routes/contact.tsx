@@ -80,7 +80,7 @@ function Contact() {
                       rel="noreferrer"
                       className="group flex items-center gap-3 rounded-2xl border border-border bg-card/60 px-4 py-3 hover:border-primary/60 transition-colors"
                     >
-                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand text-white">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
                         <Icon className="h-4 w-4" />
                       </span>
                       <div>
@@ -96,7 +96,7 @@ function Contact() {
               <div className="absolute inset-0 bg-grid opacity-30" />
               <div className="relative aspect-[16/9] flex items-center justify-center">
                 <div className="text-center">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white mx-auto">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground mx-auto">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <p className="mt-3 font-display font-semibold">Working remotely — worldwide</p>
@@ -119,7 +119,7 @@ function Contact() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 180 }}
-                    className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-brand text-white shadow-glow-blue"
+                    className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-brand text-primary-foreground shadow-glow-blue"
                   >
                     <CheckCircle2 className="h-8 w-8" />
                   </motion.div>
@@ -187,7 +187,7 @@ function Contact() {
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-white shadow-glow-blue"
+                    className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-blue"
                   >
                     Send Message <Send className="h-4 w-4" />
                   </motion.button>

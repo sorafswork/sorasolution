@@ -63,7 +63,7 @@ export function OfferModal() {
                 transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
                 className="mt-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-brand shadow-glow-blue"
               >
-                <Gift className="h-8 w-8 text-white" />
+                <Gift className="h-8 w-8 text-primary-foreground" />
               </motion.div>
               <h3 className="mt-4 font-display text-3xl font-bold leading-tight">
                 Exclusive <span className="text-gradient-gold">SoRa Offer</span>
@@ -89,7 +89,7 @@ export function OfferModal() {
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-white shadow-glow-blue"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-blue"
                 >
                   Claim Offer <ArrowRight className="h-4 w-4" />
                 </Link>

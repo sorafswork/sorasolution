@@ -96,7 +96,7 @@ export function SiteNav() {
             </button>
             <Link
               to="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-white shadow-glow-blue hover:scale-[1.03] transition-transform"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow-blue hover:scale-[1.03] transition-transform"
             >
               Get Free Quote <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -145,7 +145,7 @@ export function SiteNav() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-1 flex items-center justify-center gap-1.5 rounded-xl bg-gradient-brand px-3 py-2 text-sm font-semibold text-white"
+                className="mt-1 flex items-center justify-center gap-1.5 rounded-xl bg-gradient-brand px-3 py-2 text-sm font-semibold text-primary-foreground"
               >
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </Link>

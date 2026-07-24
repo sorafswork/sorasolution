@@ -56,7 +56,7 @@ function Works() {
               className={cn(
                 "rounded-full px-4 py-1.5 text-sm font-medium transition-all border",
                 filter === c
-                  ? "bg-gradient-brand text-white border-transparent shadow-glow-blue"
+                  ? "bg-gradient-brand text-primary-foreground border-transparent shadow-glow-blue"
                   : "border-border bg-card/60 text-muted-foreground hover:text-foreground",
               )}
             >

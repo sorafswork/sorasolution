@@ -38,7 +38,7 @@ function Services() {
               className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-shadow hover:shadow-glow-blue"
             >
               <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/25 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground">
                 <s.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-4 font-display text-xl font-bold">{s.title}</h3>
