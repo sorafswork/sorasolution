@@ -17,7 +17,7 @@ export function BrandLink({
   className?: string;
 }) {
   const styles: Record<Variant, string> = {
-    primary: "bg-gradient-brand text-white shadow-glow-blue",
+    primary: "bg-gradient-brand text-primary-foreground shadow-glow-blue",
     gold: "bg-gradient-gold text-gold-foreground shadow-glow-gold",
     outline: "border border-border bg-card/50 text-foreground hover:border-primary/60",
   };
