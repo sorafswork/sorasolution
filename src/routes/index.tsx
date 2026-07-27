@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Play, Sparkles, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, Play, Sparkles, CheckCircle2, Star, Target, Eye, Heart } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import p1 from "@/assets/p1.jpg";
 import p2 from "@/assets/p2.jpg";
@@ -10,7 +10,10 @@ import { BrandLink } from "@/components/site/brand-button";
 import { SectionHeader } from "@/components/site/section-header";
 import { Counter } from "@/components/site/counter";
 import { TechMarquee } from "@/components/site/marquee";
-import { SERVICES, STATS, WHY_US, TESTIMONIALS } from "@/lib/site-data";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
+import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,11 +33,14 @@ function Home() {
       <Hero />
       <TrustStrip />
       <StatsBar />
+      <AboutSection />
       <ServicesPreview />
       <WhyUs />
+      <ProcessSection />
       <TechStack />
       <PortfolioPreview />
       <TestimonialsPreview />
+      <FaqSection />
       <FinalCTA />
     </>
   );
@@ -83,7 +89,7 @@ function Hero() {
               className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]"
             >
               Start your journey with{" "}
-              <span className="text-gradient-brand">SoRa Innovative Solution</span>
+              <span className="text-shimmer">SoRa Innovative Solution</span>
             </motion.h1>
 
             <motion.p
@@ -193,7 +199,7 @@ function StatsBar() {
             transition={{ delay: i * 0.05 }}
             className="glass-card rounded-2xl border p-5 text-center"
           >
-            <div className="font-display text-3xl md:text-4xl font-bold text-gradient-brand">
+            <div className="font-display text-3xl md:text-4xl font-bold text-shimmer">
               <Counter to={s.value} suffix={s.suffix} />
             </div>
             <div className="mt-1 text-xs text-muted-foreground">{s.label}</div>
@@ -247,14 +253,26 @@ function ServicesPreview() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ delay: i * 0.05 }}
             whileHover={{ y: -6 }}
-            className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-shadow hover:shadow-glow-blue"
+            className="group relative overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-glow-blue"
           >
-            <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground">
-              <s.icon className="h-6 w-6" />
+            <div className="relative overflow-hidden">
+              <img
+                src={s.image}
+                alt={`${s.title} poster`}
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+              <div className="absolute bottom-3 left-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow-blue">
+                <s.icon className="h-5 w-5" />
+              </div>
             </div>
-            <h3 className="mt-4 font-display text-xl font-bold">{s.title}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+            <div className="p-6">
+              <h3 className="font-display text-xl font-bold text-shimmer">{s.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -272,7 +290,7 @@ function WhyUs() {
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
       <SectionHeader
         eyebrow="Why SoRa"
-        title={<>Built on <span className="text-gradient-brand">quality</span>, backed by <span className="text-gradient-gold">care</span>.</>}
+        title={<>Built on <span className="text-shimmer">quality</span>, backed by <span className="text-gradient-gold">care</span>.</>}
       />
       <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
         {WHY_US.map((w, i) => (
@@ -300,7 +318,7 @@ function TechStack() {
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-16">
       <SectionHeader
         eyebrow="Technologies"
-        title={<>The <span className="text-gradient-brand">modern stack</span> we build with</>}
+        title={<>The <span className="text-shimmer">modern stack</span> we build with</>}
       />
       <div className="mt-10">
         <TechMarquee />
@@ -352,7 +370,7 @@ function TestimonialsPreview() {
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
       <SectionHeader
         eyebrow="Loved by clients"
-        title={<>What our <span className="text-gradient-brand">clients</span> say</>}
+        title={<>What our <span className="text-shimmer">clients</span> say</>}
       />
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {TESTIMONIALS.slice(0, 3).map((t, i) => (
