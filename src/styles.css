@@ -69,64 +69,64 @@
 
 :root {
   --radius: 1rem;
-  /* SoRa Peach theme — Soft Peach · Blush Pink · Warm Rose Gold */
-  --background: oklch(0.985 0.012 55);   /* creamy peach white */
-  --foreground: oklch(0.24 0.04 25);     /* warm deep espresso */
-  --card: oklch(0.98 0.02 40);
-  --card-foreground: oklch(0.24 0.04 25);
-  --popover: oklch(0.99 0.015 45);
-  --popover-foreground: oklch(0.24 0.04 25);
-  --primary: oklch(0.78 0.13 25);        /* peach coral */
-  --primary-foreground: oklch(0.20 0.03 25);
-  --secondary: oklch(0.94 0.03 20);
-  --secondary-foreground: oklch(0.28 0.04 25);
-  --muted: oklch(0.95 0.02 30);
-  --muted-foreground: oklch(0.48 0.04 25);
-  --accent: oklch(0.88 0.09 15);         /* soft blush pink */
-  --accent-foreground: oklch(0.24 0.04 25);
-  --gold: oklch(0.80 0.11 55);           /* warm rose gold */
-  --gold-foreground: oklch(0.22 0.04 25);
-  --purple: oklch(0.48 0.20 300);        /* deep royal purple */
+  /* SoRa Bold — warm "lite dark" theme (no white). Multi-color: coral, plum, rose-gold, terracotta. No blue. */
+  --background: oklch(0.18 0.02 25);       /* warm charcoal, not pure black */
+  --foreground: oklch(0.94 0.02 60);       /* warm cream text */
+  --card: oklch(0.22 0.025 25);
+  --card-foreground: oklch(0.94 0.02 60);
+  --popover: oklch(0.20 0.025 25);
+  --popover-foreground: oklch(0.94 0.02 60);
+  --primary: oklch(0.72 0.18 25);          /* bold coral */
+  --primary-foreground: oklch(0.15 0.02 25);
+  --secondary: oklch(0.30 0.04 20);
+  --secondary-foreground: oklch(0.94 0.02 60);
+  --muted: oklch(0.26 0.03 25);
+  --muted-foreground: oklch(0.78 0.03 40);
+  --accent: oklch(0.55 0.20 350);          /* magenta rose */
+  --accent-foreground: oklch(0.98 0.01 60);
+  --gold: oklch(0.80 0.14 75);             /* rich warm gold */
+  --gold-foreground: oklch(0.15 0.02 25);
+  --purple: oklch(0.55 0.20 320);          /* deep plum */
   --purple-foreground: oklch(0.98 0.01 300);
   --destructive: oklch(0.60 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.30 0.05 25 / 12%);
-  --input: oklch(0.30 0.05 25 / 14%);
-  --ring: oklch(0.78 0.13 25);
-  --chart-1: oklch(0.78 0.13 25);
-  --chart-2: oklch(0.80 0.11 55);
-  --chart-3: oklch(0.85 0.10 10);
-  --chart-4: oklch(0.72 0.14 40);
-  --chart-5: oklch(0.60 0.06 25);
-  --sidebar: oklch(0.985 0.012 55);
-  --sidebar-foreground: oklch(0.24 0.04 25);
-  --sidebar-primary: oklch(0.78 0.13 25);
-  --sidebar-primary-foreground: oklch(0.20 0.03 25);
-  --sidebar-accent: oklch(0.94 0.03 20);
-  --sidebar-accent-foreground: oklch(0.28 0.04 25);
-  --sidebar-border: oklch(0.30 0.05 25 / 12%);
-  --sidebar-ring: oklch(0.78 0.13 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.85 0.05 60 / 14%);
+  --input: oklch(0.85 0.05 60 / 16%);
+  --ring: oklch(0.72 0.18 25);
+  --chart-1: oklch(0.72 0.18 25);
+  --chart-2: oklch(0.80 0.14 75);
+  --chart-3: oklch(0.55 0.20 350);
+  --chart-4: oklch(0.55 0.20 320);
+  --chart-5: oklch(0.65 0.16 40);
+  --sidebar: oklch(0.18 0.02 25);
+  --sidebar-foreground: oklch(0.94 0.02 60);
+  --sidebar-primary: oklch(0.72 0.18 25);
+  --sidebar-primary-foreground: oklch(0.15 0.02 25);
+  --sidebar-accent: oklch(0.30 0.04 20);
+  --sidebar-accent-foreground: oklch(0.94 0.02 60);
+  --sidebar-border: oklch(0.85 0.05 60 / 14%);
+  --sidebar-ring: oklch(0.72 0.18 25);
 
   /* Brand gradients & shadows */
   --gradient-brand: linear-gradient(135deg,
-    oklch(0.20 0.04 300) 0%,
-    oklch(0.48 0.22 320) 35%,
-    oklch(0.62 0.24 350) 65%,
-    oklch(0.78 0.13 25) 100%);
+    oklch(0.55 0.20 320) 0%,
+    oklch(0.60 0.22 350) 40%,
+    oklch(0.72 0.18 25) 75%,
+    oklch(0.80 0.14 75) 100%);
   --gradient-gold: linear-gradient(135deg,
-    oklch(0.86 0.10 55) 0%,
-    oklch(0.78 0.13 40) 50%,
-    oklch(0.72 0.15 25) 100%);
+    oklch(0.86 0.14 80) 0%,
+    oklch(0.78 0.15 55) 50%,
+    oklch(0.68 0.17 30) 100%);
   --gradient-blue: linear-gradient(135deg,
-    oklch(0.82 0.14 25) 0%,
-    oklch(0.72 0.15 15) 100%);
+    oklch(0.72 0.18 25) 0%,
+    oklch(0.60 0.20 15) 100%);
   --gradient-brand-soft: linear-gradient(135deg,
-    oklch(0.82 0.14 25 / 0.22) 0%,
-    oklch(0.86 0.10 10 / 0.20) 50%,
-    oklch(0.80 0.11 55 / 0.18) 100%);
-  --shadow-glow-blue: 0 0 55px oklch(0.82 0.14 25 / 0.45);
-  --shadow-glow-gold: 0 0 55px oklch(0.80 0.11 55 / 0.40);
-  --shadow-elevated: 0 25px 70px -25px oklch(0.40 0.10 25 / 0.35);
+    oklch(0.72 0.18 25 / 0.28) 0%,
+    oklch(0.55 0.20 350 / 0.22) 50%,
+    oklch(0.80 0.14 75 / 0.22) 100%);
+  --shadow-glow-blue: 0 0 55px oklch(0.72 0.18 25 / 0.55);
+  --shadow-glow-gold: 0 0 55px oklch(0.80 0.14 75 / 0.50);
+  --shadow-elevated: 0 25px 70px -25px oklch(0.10 0.02 25 / 0.65);
   --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
@@ -144,10 +144,10 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(1100px 700px at 8% -10%, oklch(0.86 0.10 20 / 0.55), transparent 60%),
-      radial-gradient(900px 700px at 100% 10%, oklch(0.88 0.09 15 / 0.45), transparent 60%),
-      radial-gradient(900px 700px at 90% 60%, oklch(0.85 0.08 55 / 0.35), transparent 60%),
-      radial-gradient(1200px 800px at 50% 110%, oklch(0.82 0.11 30 / 0.40), transparent 60%);
+      radial-gradient(1100px 700px at 8% -10%, oklch(0.55 0.22 350 / 0.28), transparent 60%),
+      radial-gradient(900px 700px at 100% 10%, oklch(0.55 0.20 320 / 0.25), transparent 60%),
+      radial-gradient(900px 700px at 90% 60%, oklch(0.80 0.14 75 / 0.18), transparent 60%),
+      radial-gradient(1200px 800px at 50% 110%, oklch(0.72 0.18 25 / 0.28), transparent 60%);
     background-attachment: fixed;
   }
   h1, h2, h3, h4 {
@@ -207,11 +207,11 @@
 
 @utility text-shimmer {
   background: linear-gradient(90deg,
-    oklch(0.22 0.04 300) 0%,
-    oklch(0.48 0.22 320) 25%,
-    oklch(0.62 0.24 350) 50%,
-    oklch(0.48 0.22 320) 75%,
-    oklch(0.22 0.04 300) 100%);
+    oklch(0.94 0.02 60) 0%,
+    oklch(0.80 0.14 75) 25%,
+    oklch(0.72 0.18 25) 50%,
+    oklch(0.55 0.20 350) 75%,
+    oklch(0.94 0.02 60) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
