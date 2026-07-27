@@ -414,7 +414,7 @@ function FinalCTA() {
           </div>
           <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-tight">
             Ready to launch something{" "}
-            <span className="text-gradient-brand">unforgettable?</span>
+            <span className="text-shimmer">unforgettable?</span>
           </h2>
           <p className="mt-4 mx-auto max-w-xl text-muted-foreground">
             Tell us about your project — we'll respond within 24 hours with a plan.
@@ -428,6 +428,105 @@ function FinalCTA() {
             </BrandLink>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+const PILLARS = [
+  { icon: Target, title: "Our Mission", desc: "Empower every business with premium digital experiences that spark growth." },
+  { icon: Eye, title: "Our Vision", desc: "Become a globally trusted studio known for craft, care, and consistency." },
+  { icon: Heart, title: "Our Values", desc: "Integrity, creativity, transparency, and obsessive attention to detail." },
+];
+
+function AboutSection() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="Who we are"
+        title={<>A modern digital studio built for <span className="text-shimmer">growth</span>.</>}
+        subtitle="SoRa Innovative Solution blends technology, creativity, and strategy to help brands build a striking online identity and grow with confidence."
+      />
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {PILLARS.map((p, i) => (
+          <motion.div
+            key={p.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: i * 0.06 }}
+            whileHover={{ y: -4 }}
+            className="glass-card rounded-3xl border p-6"
+          >
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow-blue">
+              <p.icon className="h-5 w-5" />
+            </div>
+            <h3 className="mt-4 font-display text-xl font-bold text-shimmer">{p.title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProcessSection() {
+  return (
+    <section className="mx-auto max-w-6xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="How we work"
+        title={<>A <span className="text-shimmer">clear process</span>, idea to launch</>}
+        subtitle="Nine focused steps that keep every project on track and every client in the loop."
+      />
+      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {PROCESS.map((step, i) => (
+          <motion.div
+            key={step.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ delay: (i % 3) * 0.05 }}
+            whileHover={{ y: -4 }}
+            className="glass-card rounded-2xl border p-5 flex items-start gap-4"
+          >
+            <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow-blue">
+              <step.icon className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-gold font-semibold">
+                Step {String(i + 1).padStart(2, "0")}
+              </div>
+              <h3 className="mt-1 font-display text-lg font-bold text-shimmer">{step.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="mx-auto max-w-3xl px-4 md:px-6 py-20">
+      <SectionHeader
+        eyebrow="Questions"
+        title={<>Frequently asked <span className="text-shimmer">questions</span></>}
+        subtitle="Everything you might want to know before starting a project."
+      />
+      <div className="mt-10 glass-card rounded-3xl border p-2 md:p-4">
+        <Accordion type="single" collapsible className="w-full">
+          {FAQS.map((f, i) => (
+            <AccordionItem key={f.q} value={`i-${i}`}>
+              <AccordionTrigger className="text-left font-display text-base md:text-lg font-semibold">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
