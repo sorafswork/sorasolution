@@ -35,13 +35,24 @@ function Services() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: (i % 6) * 0.05 }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-shadow hover:shadow-glow-blue"
+            className="group relative overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-glow-blue"
             >
-              <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/25 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground">
-                <s.icon className="h-6 w-6" />
+            <div className="relative overflow-hidden">
+              <img
+                src={s.image}
+                alt={`${s.title} poster`}
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+              <div className="absolute bottom-3 left-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow-blue">
+                <s.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold">{s.title}</h3>
+            </div>
+            <div className="p-6">
+              <h3 className="font-display text-xl font-bold text-shimmer">{s.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
               <ul className="mt-4 space-y-1.5 text-sm">
                 {s.features.map((f) => (
@@ -55,6 +66,7 @@ function Services() {
                   Learn more <ArrowRight className="h-4 w-4" />
                 </BrandLink>
               </div>
+            </div>
             </motion.div>
           ))}
         </div>
