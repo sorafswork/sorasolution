@@ -3,17 +3,26 @@ import {
   Search, Layout, Share2, Compass, Terminal, TestTube, Send, ClipboardList,
   Award, Zap, DollarSign, Smartphone, Users, Headphones, RefreshCw, MonitorSmartphone,
 } from "lucide-react";
+import webDevImg from "@/assets/services/web-dev.jpg";
+import graphicImg from "@/assets/services/graphic-design.jpg";
+import brandImg from "@/assets/services/brand-identity.jpg";
+import contentImg from "@/assets/services/content-writing.jpg";
+import marketingImg from "@/assets/services/digital-marketing.jpg";
+import maintenanceImg from "@/assets/services/maintenance.jpg";
+import seoImg from "@/assets/services/seo.jpg";
+import uiuxImg from "@/assets/services/ui-ux.jpg";
+import socialImg from "@/assets/services/social.jpg";
 
 export const SERVICES = [
-  { icon: Code2, title: "Website Development", desc: "Fast, SEO-ready websites built with modern frameworks.", features: ["Next.js / React", "SSR & SEO", "Blazing-fast Core Web Vitals"] },
-  { icon: Palette, title: "Graphic Design", desc: "Eye-catching visuals for posts, ads, and print.", features: ["Posters & flyers", "Ad creatives", "Social kits"] },
-  { icon: PenTool, title: "Brand Identity", desc: "Logos, typography, and guidelines that stick.", features: ["Logo suite", "Brand book", "Color & type systems"] },
-  { icon: FileText, title: "Content Writing", desc: "Copy that converts across web and social.", features: ["Website copy", "Blog SEO", "Captions & scripts"] },
-  { icon: Megaphone, title: "Digital Marketing", desc: "Paid + organic strategy that scales revenue.", features: ["Meta & Google Ads", "Funnels", "Analytics"] },
-  { icon: LifeBuoy, title: "Website Maintenance", desc: "Uptime, updates and monthly care plans.", features: ["Backups", "Security", "Performance tuning"] },
-  { icon: Search, title: "SEO", desc: "Rank higher and get discovered by the right audience.", features: ["On-page SEO", "Technical audits", "Content clusters"] },
-  { icon: Layout, title: "UI/UX Design", desc: "Delightful, conversion-focused product design.", features: ["Wireframes", "Prototypes", "Design systems"] },
-  { icon: Share2, title: "Social Media Branding", desc: "A consistent, on-brand social presence.", features: ["Grid design", "Templates", "Content strategy"] },
+  { icon: Code2, image: webDevImg, title: "Website Development", desc: "Fast, SEO-ready websites built with modern frameworks.", features: ["Next.js / React", "SSR & SEO", "Blazing-fast Core Web Vitals"] },
+  { icon: Palette, image: graphicImg, title: "Graphic Design", desc: "Eye-catching visuals for posts, ads, and print.", features: ["Posters & flyers", "Ad creatives", "Social kits"] },
+  { icon: PenTool, image: brandImg, title: "Brand Identity", desc: "Logos, typography, and guidelines that stick.", features: ["Logo suite", "Brand book", "Color & type systems"] },
+  { icon: FileText, image: contentImg, title: "Content Writing", desc: "Copy that converts across web and social.", features: ["Website copy", "Blog SEO", "Captions & scripts"] },
+  { icon: Megaphone, image: marketingImg, title: "Digital Marketing", desc: "Paid + organic strategy that scales revenue.", features: ["Meta & Google Ads", "Funnels", "Analytics"] },
+  { icon: LifeBuoy, image: maintenanceImg, title: "Website Maintenance", desc: "Uptime, updates and monthly care plans.", features: ["Backups", "Security", "Performance tuning"] },
+  { icon: Search, image: seoImg, title: "SEO", desc: "Rank higher and get discovered by the right audience.", features: ["On-page SEO", "Technical audits", "Content clusters"] },
+  { icon: Layout, image: uiuxImg, title: "UI/UX Design", desc: "Delightful, conversion-focused product design.", features: ["Wireframes", "Prototypes", "Design systems"] },
+  { icon: Share2, image: socialImg, title: "Social Media Branding", desc: "A consistent, on-brand social presence.", features: ["Grid design", "Templates", "Content strategy"] },
 ];
 
 export const PROCESS = [

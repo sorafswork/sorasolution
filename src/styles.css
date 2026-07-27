@@ -61,6 +61,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
+  --color-purple: var(--purple);
+  --color-purple-foreground: var(--purple-foreground);
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -84,6 +86,8 @@
   --accent-foreground: oklch(0.24 0.04 25);
   --gold: oklch(0.80 0.11 55);           /* warm rose gold */
   --gold-foreground: oklch(0.22 0.04 25);
+  --purple: oklch(0.48 0.20 300);        /* deep royal purple */
+  --purple-foreground: oklch(0.98 0.01 300);
   --destructive: oklch(0.60 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.30 0.05 25 / 12%);
@@ -105,9 +109,10 @@
 
   /* Brand gradients & shadows */
   --gradient-brand: linear-gradient(135deg,
-    oklch(0.82 0.14 25) 0%,
-    oklch(0.86 0.10 10) 40%,
-    oklch(0.80 0.11 55) 100%);
+    oklch(0.20 0.04 300) 0%,
+    oklch(0.48 0.22 320) 35%,
+    oklch(0.62 0.24 350) 65%,
+    oklch(0.78 0.13 25) 100%);
   --gradient-gold: linear-gradient(135deg,
     oklch(0.86 0.10 55) 0%,
     oklch(0.78 0.13 40) 50%,
@@ -153,9 +158,11 @@
 
 @utility text-gradient-brand {
   background: var(--gradient-brand);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradient-pan 6s ease-in-out infinite;
 }
 
 @utility bg-gradient-brand {
@@ -191,9 +198,30 @@
 
 @utility text-gradient-gold {
   background: var(--gradient-gold);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradient-pan 8s ease-in-out infinite;
+}
+
+@utility text-shimmer {
+  background: linear-gradient(90deg,
+    oklch(0.22 0.04 300) 0%,
+    oklch(0.48 0.22 320) 25%,
+    oklch(0.62 0.24 350) 50%,
+    oklch(0.48 0.22 320) 75%,
+    oklch(0.22 0.04 300) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 
 @keyframes float-slow {
