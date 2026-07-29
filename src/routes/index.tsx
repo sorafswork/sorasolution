@@ -328,32 +328,39 @@ function TechStack() {
 }
 
 function PortfolioPreview() {
-  const shots = [p1, p2, p3];
+  const shots = [
+    { img: p1, title: "Skyfly International", cat: "Corporate Travel", url: "https://www.skyflyintl.com/" },
+    { img: p2, title: "VY Enterprises", cat: "B2B Business", url: "https://www.vyenterprises.in/" },
+    { img: p3, title: "Blush Theory Art Studio", cat: "Art Gallery", url: "https://blush-theory-art-studio.lovable.app" },
+  ];
   return (
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
       <SectionHeader
         eyebrow="Recent work"
         title={<>Selected <span className="text-gradient-gold">works</span></>}
-        subtitle="A glimpse of what we've been crafting lately."
+        subtitle="A glimpse of live client projects we've recently delivered."
       />
       <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {shots.map((img, i) => (
-          <motion.div
-            key={i}
+        {shots.map((s, i) => (
+          <motion.a
+            key={s.title}
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
             whileHover={{ y: -6 }}
-            className="group relative overflow-hidden rounded-3xl border border-border bg-card"
+            className="group relative block overflow-hidden rounded-3xl border border-border bg-card"
           >
-            <img src={img} alt="" className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={s.img} alt={s.title} className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70" />
             <div className="absolute bottom-4 left-4 right-4">
-              <div className="text-xs text-gold uppercase tracking-widest">Case study</div>
-              <div className="mt-1 font-display text-lg font-bold">Project #{i + 1}</div>
+              <div className="text-xs text-gold uppercase tracking-widest">{s.cat}</div>
+              <div className="mt-1 font-display text-lg font-bold">{s.title}</div>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
       <div className="mt-8 text-center">

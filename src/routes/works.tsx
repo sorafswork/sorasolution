@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { ExternalLink } from "lucide-react";
 import { PageHero } from "@/components/site/section-header";
 import { cn } from "@/lib/utils";
 import p1 from "@/assets/p1.jpg";
@@ -22,18 +23,58 @@ export const Route = createFileRoute("/works")({
   component: Works,
 });
 
-const CATEGORIES = ["All", "Websites", "Branding", "Logo", "Posters", "Graphics", "Content"] as const;
+const CATEGORIES = ["All", "Corporate", "Business", "Art & Creative", "Portfolio", "Productivity"] as const;
 
 const PROJECTS = [
-  { img: p1, title: "Kairo Studio", cat: "Websites" },
-  { img: p2, title: "BrewNest", cat: "Branding" },
-  { img: p3, title: "LumenTech", cat: "Websites" },
-  { img: p4, title: "Bloom & Vine", cat: "Logo" },
-  { img: p5, title: "FinNova", cat: "Graphics" },
-  { img: p6, title: "@byananya", cat: "Content" },
-  { img: p1, title: "Nordic Skate", cat: "Posters" },
-  { img: p2, title: "Solaris", cat: "Websites" },
-  { img: p3, title: "Cinder Cafe", cat: "Branding" },
+  {
+    img: p1,
+    title: "Skyfly International Pvt Ltd",
+    cat: "Corporate",
+    url: "https://www.skyflyintl.com/",
+    desc: "A polished corporate website for an international travel and tour operator. Delivers a curated showcase of holiday packages, destination guides, visa assistance, and flight & hotel booking enquiries, with a strong lead-capture flow, WhatsApp/call CTAs, and a modern responsive layout that builds instant trust for global travellers.",
+  },
+  {
+    img: p2,
+    title: "VY Enterprises",
+    cat: "Business",
+    url: "https://www.vyenterprises.in/",
+    desc: "A professional B2B business site presenting the company profile, product catalogue, and service offerings in a clean, credibility-first layout. Features include categorised product pages, quick enquiry forms, downloadable brochures, and direct contact channels — engineered to convert first-time visitors into qualified leads.",
+  },
+  {
+    img: p3,
+    title: "Blush Theory Art Studio",
+    cat: "Art & Creative",
+    url: "https://blush-theory-art-studio.lovable.app",
+    desc: "An elegant art studio website showcasing original paintings and commissioned artworks in a rich, gallery-style presentation. Includes an interactive portfolio, artist story, commission enquiry form, and social integrations designed to help the studio attract collectors and grow bookings.",
+  },
+  {
+    img: p4,
+    title: "Artika Gallery",
+    cat: "Art & Creative",
+    url: "https://artika-creations.vercel.app/",
+    desc: "A refined online gallery for a creative brand, featuring curated artwork collections, category filters, and immersive detail views. The site balances aesthetics with performance — smooth transitions, lightbox previews, and clear enquiry paths that turn browsers into buyers.",
+  },
+  {
+    img: p5,
+    title: "Habit Flow",
+    cat: "Productivity",
+    url: "https://habit-track-w.netlify.app/",
+    desc: "A minimal, focus-driven habit tracker web app that helps users build consistent routines. Users can create daily habits, mark completions, visualise streaks, and monitor long-term progress on a clean dashboard — perfect for anyone serious about self-improvement and productivity.",
+  },
+  {
+    img: p6,
+    title: "Client Portfolio — Ratthi",
+    cat: "Portfolio",
+    url: "https://ratthi-portfolio.lovable.app",
+    desc: "A modern personal portfolio built to spotlight the client's professional journey, skills, projects, and achievements. Includes an animated hero, project showcase, about story, testimonials, and a direct contact section — a polished digital identity for career opportunities and collaborations.",
+  },
+  {
+    img: p1,
+    title: "Skyfly India",
+    cat: "Corporate",
+    url: "https://india-skyfly.lovable.app",
+    desc: "A destination-focused travel website for domestic Indian tours. Highlights curated packages, popular routes, seasonal offers, and a fast enquiry system with click-to-call and WhatsApp booking — designed to convert traffic into confirmed trips with a warm, premium feel.",
+  },
 ];
 
 function Works() {
@@ -45,7 +86,7 @@ function Works() {
       <PageHero
         eyebrow="Portfolio"
         title={<>Our <span className="text-gradient-brand">works</span></>}
-        subtitle="A curated selection of recent projects across web, brand, and design."
+        subtitle="A curated selection of live client projects delivered by SoRa Innovative Solution."
       />
       <section className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-wrap justify-center gap-2">
@@ -65,33 +106,40 @@ function Works() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3 pb-12">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 pb-12">
           {list.map((p, i) => (
-            <motion.div
+            <motion.a
               key={p.title + i}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: (i % 6) * 0.04 }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card"
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-glow-gold"
             >
-              <img
-                src={p.img}
-                alt={p.title}
-                className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-80" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-2">
-                <div>
-                  <div className="text-[10px] uppercase tracking-widest text-gold">{p.cat}</div>
-                  <div className="mt-1 font-display text-lg font-bold">{p.title}</div>
-                </div>
-                <span className="rounded-full bg-primary/20 border border-primary/40 px-2.5 py-1 text-[10px] font-semibold text-primary">
-                  View
+              <div className="relative overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                <span className="absolute top-3 left-3 rounded-full bg-gold/15 border border-gold/40 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold">
+                  {p.cat}
                 </span>
               </div>
-            </motion.div>
+              <div className="flex flex-1 flex-col p-6">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-display text-lg font-bold text-shimmer">{p.title}</h3>
+                  <ExternalLink className="h-4 w-4 shrink-0 text-gold transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <span className="mt-4 text-xs text-primary/90 break-all">{p.url.replace(/^https?:\/\//, "")}</span>
+              </div>
+            </motion.a>
           ))}
         </div>
       </section>
