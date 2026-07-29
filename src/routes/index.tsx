@@ -33,12 +33,11 @@ function Home() {
       <Hero />
       <TrustStrip />
       <StatsBar />
-      <AboutSection />
+      <PortfolioPreview />
       <ServicesPreview />
       <WhyUs />
       <ProcessSection />
       <TechStack />
-      <PortfolioPreview />
       <TestimonialsPreview />
       <FaqSection />
       <FinalCTA />
