@@ -69,64 +69,64 @@
 
 :root {
   --radius: 1rem;
-  /* SoRa Bold — warm "lite dark" theme (no white). Multi-color: coral, plum, rose-gold, terracotta. No blue. */
-  --background: oklch(0.18 0.02 25);       /* warm charcoal, not pure black */
-  --foreground: oklch(0.94 0.02 60);       /* warm cream text */
-  --card: oklch(0.22 0.025 25);
-  --card-foreground: oklch(0.94 0.02 60);
-  --popover: oklch(0.20 0.025 25);
-  --popover-foreground: oklch(0.94 0.02 60);
-  --primary: oklch(0.72 0.18 25);          /* bold coral */
-  --primary-foreground: oklch(0.15 0.02 25);
-  --secondary: oklch(0.30 0.04 20);
-  --secondary-foreground: oklch(0.94 0.02 60);
-  --muted: oklch(0.26 0.03 25);
-  --muted-foreground: oklch(0.78 0.03 40);
-  --accent: oklch(0.55 0.20 350);          /* magenta rose */
-  --accent-foreground: oklch(0.98 0.01 60);
-  --gold: oklch(0.80 0.14 75);             /* rich warm gold */
-  --gold-foreground: oklch(0.15 0.02 25);
-  --purple: oklch(0.55 0.20 320);          /* deep plum */
+  /* SoRa Royal — deep midnight navy, royal purple, imperial gold, burgundy. Professional & luxe. */
+  --background: oklch(0.16 0.04 275);      /* midnight navy */
+  --foreground: oklch(0.96 0.02 85);       /* soft ivory */
+  --card: oklch(0.21 0.05 275);
+  --card-foreground: oklch(0.96 0.02 85);
+  --popover: oklch(0.19 0.05 275);
+  --popover-foreground: oklch(0.96 0.02 85);
+  --primary: oklch(0.48 0.18 285);         /* royal purple */
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.28 0.06 275);
+  --secondary-foreground: oklch(0.96 0.02 85);
+  --muted: oklch(0.24 0.04 275);
+  --muted-foreground: oklch(0.78 0.03 85);
+  --accent: oklch(0.42 0.16 20);           /* burgundy */
+  --accent-foreground: oklch(0.98 0.01 85);
+  --gold: oklch(0.82 0.14 85);             /* imperial gold */
+  --gold-foreground: oklch(0.16 0.04 275);
+  --purple: oklch(0.55 0.20 295);          /* royal violet */
   --purple-foreground: oklch(0.98 0.01 300);
-  --destructive: oklch(0.60 0.22 27);
+  --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.85 0.05 60 / 14%);
-  --input: oklch(0.85 0.05 60 / 16%);
-  --ring: oklch(0.72 0.18 25);
-  --chart-1: oklch(0.72 0.18 25);
-  --chart-2: oklch(0.80 0.14 75);
-  --chart-3: oklch(0.55 0.20 350);
-  --chart-4: oklch(0.55 0.20 320);
-  --chart-5: oklch(0.65 0.16 40);
-  --sidebar: oklch(0.18 0.02 25);
-  --sidebar-foreground: oklch(0.94 0.02 60);
-  --sidebar-primary: oklch(0.72 0.18 25);
-  --sidebar-primary-foreground: oklch(0.15 0.02 25);
-  --sidebar-accent: oklch(0.30 0.04 20);
-  --sidebar-accent-foreground: oklch(0.94 0.02 60);
-  --sidebar-border: oklch(0.85 0.05 60 / 14%);
-  --sidebar-ring: oklch(0.72 0.18 25);
+  --border: oklch(0.82 0.14 85 / 20%);
+  --input: oklch(0.82 0.14 85 / 18%);
+  --ring: oklch(0.82 0.14 85);
+  --chart-1: oklch(0.48 0.18 285);
+  --chart-2: oklch(0.82 0.14 85);
+  --chart-3: oklch(0.42 0.16 20);
+  --chart-4: oklch(0.55 0.20 295);
+  --chart-5: oklch(0.35 0.10 260);
+  --sidebar: oklch(0.16 0.04 275);
+  --sidebar-foreground: oklch(0.96 0.02 85);
+  --sidebar-primary: oklch(0.48 0.18 285);
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --sidebar-accent: oklch(0.28 0.06 275);
+  --sidebar-accent-foreground: oklch(0.96 0.02 85);
+  --sidebar-border: oklch(0.82 0.14 85 / 18%);
+  --sidebar-ring: oklch(0.82 0.14 85);
 
-  /* Brand gradients & shadows */
+  /* Royal brand gradients & shadows */
   --gradient-brand: linear-gradient(135deg,
-    oklch(0.55 0.20 320) 0%,
-    oklch(0.60 0.22 350) 40%,
-    oklch(0.72 0.18 25) 75%,
-    oklch(0.80 0.14 75) 100%);
+    oklch(0.30 0.12 275) 0%,
+    oklch(0.48 0.18 285) 40%,
+    oklch(0.55 0.20 295) 70%,
+    oklch(0.82 0.14 85) 100%);
   --gradient-gold: linear-gradient(135deg,
-    oklch(0.86 0.14 80) 0%,
-    oklch(0.78 0.15 55) 50%,
-    oklch(0.68 0.17 30) 100%);
+    oklch(0.88 0.13 90) 0%,
+    oklch(0.80 0.15 78) 50%,
+    oklch(0.66 0.14 55) 100%);
   --gradient-blue: linear-gradient(135deg,
-    oklch(0.72 0.18 25) 0%,
-    oklch(0.60 0.20 15) 100%);
+    oklch(0.30 0.14 275) 0%,
+    oklch(0.48 0.18 285) 100%);
   --gradient-brand-soft: linear-gradient(135deg,
-    oklch(0.72 0.18 25 / 0.28) 0%,
-    oklch(0.55 0.20 350 / 0.22) 50%,
-    oklch(0.80 0.14 75 / 0.22) 100%);
-  --shadow-glow-blue: 0 0 55px oklch(0.72 0.18 25 / 0.55);
-  --shadow-glow-gold: 0 0 55px oklch(0.80 0.14 75 / 0.50);
-  --shadow-elevated: 0 25px 70px -25px oklch(0.10 0.02 25 / 0.65);
+    oklch(0.48 0.18 285 / 0.24) 0%,
+    oklch(0.55 0.20 295 / 0.20) 50%,
+    oklch(0.82 0.14 85 / 0.20) 100%);
+  --shadow-glow-blue: 0 0 45px oklch(0.48 0.18 285 / 0.55);
+  --shadow-glow-gold: 0 0 45px oklch(0.82 0.14 85 / 0.50);
+  --shadow-elevated: 0 25px 70px -25px oklch(0.08 0.04 275 / 0.75);
   --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
@@ -143,12 +143,6 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(1100px 700px at 8% -10%, oklch(0.55 0.22 350 / 0.28), transparent 60%),
-      radial-gradient(900px 700px at 100% 10%, oklch(0.55 0.20 320 / 0.25), transparent 60%),
-      radial-gradient(900px 700px at 90% 60%, oklch(0.80 0.14 75 / 0.18), transparent 60%),
-      radial-gradient(1200px 800px at 50% 110%, oklch(0.72 0.18 25 / 0.28), transparent 60%);
-    background-attachment: fixed;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
