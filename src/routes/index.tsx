@@ -14,6 +14,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
+import { ContactSection } from "@/components/site/contact-section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,6 +42,7 @@ function Home() {
       <TestimonialsPreview />
       <FaqSection />
       <FinalCTA />
+      <ContactSection />
     </>
   );
 }

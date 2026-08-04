@@ -27,7 +27,7 @@ const schema = z.object({
   email: z.string().trim().email("Enter a valid email").max(120),
   phone: z.string().trim().min(6, "Enter a valid phone").max(20),
   service: z.string().min(1, "Pick a service"),
-  budget: z.string().min(1, "Pick a budget"),
+  budget: z.string().optional().or(z.literal("")),
   timeline: z.string().min(1, "Pick a timeline"),
   details: z.string().trim().min(10, "Tell us a bit more").max(1000),
 });
@@ -159,7 +159,7 @@ function Contact() {
                         </SelectContent>
                       </Select>
                     </Field>
-                    <Field label="Budget">
+                    <Field label="Budget (Optional)">
                       <Select value={form.budget} onValueChange={(v) => setForm({ ...form, budget: v })}>
                         <SelectTrigger><SelectValue placeholder="Pick a range" /></SelectTrigger>
                         <SelectContent>
