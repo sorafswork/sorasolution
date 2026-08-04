@@ -14,6 +14,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
+import { ContactSection } from "@/components/site/contact-section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,6 +42,7 @@ function Home() {
       <TestimonialsPreview />
       <FaqSection />
       <FinalCTA />
+      <ContactSection />
     </>
   );
 }
@@ -330,7 +332,7 @@ function PortfolioPreview() {
   const shots = [
     { img: p1, title: "Skyfly International", cat: "Corporate Travel", url: "https://www.skyflyintl.com/" },
     { img: p2, title: "VY Enterprises", cat: "B2B Business", url: "https://www.vyenterprises.in/" },
-    { img: p3, title: "Blush Theory Art Studio", cat: "Art Gallery", url: "https://blush-theory-art-studio.lovable.app" },
+    { img: p3, title: "Blush Theory Art", cat: "Personalized Gifts", url: "https://blush-theory-art-studio.lovable.app" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
