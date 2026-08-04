@@ -24,7 +24,7 @@ export const Route = createFileRoute("/works")({
   component: Works,
 });
 
-const CATEGORIES = ["All", "Corporate", "Business", "Art & Creative", "Portfolio", "Productivity"] as const;
+const CATEGORIES = ["All", "Corporate", "Business", "Personalized Gifts", "Art & Creative", "Portfolio", "Productivity"] as const;
 
 const PROJECTS = [
   {
@@ -53,14 +53,15 @@ const PROJECTS = [
   },
   {
     img: w3,
-    title: "Blush Theory Art Studio",
-    cat: "Art & Creative",
+    title: "Blush Theory Art",
+    cat: "Personalized Gifts",
     url: "https://blush-theory-art-studio.lovable.app",
     points: [
-      "Gallery-style website for an original art studio",
-      "Interactive portfolio of paintings and commissioned works",
-      "Artist story section that builds collector trust",
-      "Commission enquiry form with social integrations",
+      "A custom-built digital gift website created personally for couples",
+      "Delivered through a unique private link that only the couple can open",
+      "Holds their photos, videos, love messages and special memories in one place",
+      "Interactive games and surprise reveals make the gift playful and memorable",
+      "Designed as a one-of-a-kind keepsake surprise for anniversaries and proposals",
     ],
   },
   {
