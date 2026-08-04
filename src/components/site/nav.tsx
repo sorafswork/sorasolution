@@ -34,10 +34,13 @@ export function SiteNav() {
       )}
     >
       <div className={cn("mx-auto max-w-7xl px-4 md:px-6")}>
+        <div className="relative rounded-2xl p-px bg-gradient-to-r from-primary/50 via-gold/40 to-primary/50">
         <div
           className={cn(
-            "glass-card flex items-center justify-between rounded-2xl border px-4 md:px-5 transition-all",
-            scrolled ? "py-2 shadow-[0_10px_40px_-15px_rgba(37,99,235,0.5)]" : "py-3",
+            "glass-card flex items-center justify-between rounded-2xl px-4 md:px-5 transition-all",
+            scrolled
+              ? "py-2 shadow-[0_18px_50px_-18px_oklch(0.55_0.22_264/0.75)]"
+              : "py-3 shadow-[0_12px_40px_-22px_oklch(0.55_0.22_264/0.6)]",
           )}
         >
           <Link to="/" className="group flex items-center gap-2.5">
@@ -58,25 +61,28 @@ export function SiteNav() {
             {NAV_LINKS.map((l) => {
               const active = pathname === l.to;
               return (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  className={cn(
-                    "relative px-3 py-1.5 text-sm font-medium rounded-full transition-colors",
-                    active
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {active && (
-                    <motion.span
-                      layoutId="nav-active"
-                      className="absolute inset-0 rounded-full bg-primary/15 ring-1 ring-primary/30"
-                      transition={{ type: "spring", stiffness: 320, damping: 28 }}
-                    />
-                  )}
-                  <span className="relative">{l.label}</span>
-                </Link>
+                <motion.div key={l.to} whileHover={{ y: -3, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
+                  <Link
+                    to={l.to}
+                    className={cn(
+                      "group relative block px-3 py-1.5 text-sm font-medium rounded-full transition-colors",
+                      active
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground",
+                    )}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="nav-active"
+                        className="absolute inset-0 rounded-full bg-primary/20 ring-1 ring-primary/40 shadow-[0_0_22px_-4px_oklch(0.55_0.22_264/0.9)]"
+                        transition={{ type: "spring", stiffness: 320, damping: 28 }}
+                      />
+                    )}
+                    <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 transition-opacity group-hover:opacity-100" />
+                    <span className="relative">{l.label}</span>
+                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold to-transparent transition-all duration-300 group-hover:w-2/3" />
+                  </Link>
+                </motion.div>
               );
             })}
           </nav>
@@ -107,6 +113,7 @@ export function SiteNav() {
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
+        </div>
         </div>
 
         {/* Mobile */}
