@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Instagram, Mail, Phone, MessageCircle, Github, ArrowUpRight } from "lucide-react";
 import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
 const logo = logoAsset.url;
-import { NAV_LINKS } from "./nav";
+import { NAV_LINKS, useSectionScroll } from "./nav";
 
 const SERVICES = [
   "Website Development",
@@ -15,6 +15,7 @@ const SERVICES = [
 ];
 
 export function SiteFooter() {
+  const scrollToSection = useSectionScroll();
   return (
     <footer className="relative mt-24 border-t border-border/60">
       <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-brand" />
@@ -24,7 +25,7 @@ export function SiteFooter() {
             <Link to="/" className="flex items-center gap-2.5">
               <motion.img
                 src={logo}
-                alt="SoRa"
+                alt="Sora Innovative Solution Logo"
                 className="h-10 w-10 rounded-full ring-1 ring-primary/40"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 1 }}
@@ -65,14 +66,18 @@ export function SiteFooter() {
             <div className="font-display font-semibold text-sm text-gold">Quick Links</div>
             <ul className="mt-4 space-y-2 text-sm">
               {NAV_LINKS.map((l) => (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
+                <li key={l.id}>
+                  <a
+                    href={`/#${l.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(l.id);
+                    }}
                     className="group inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {l.label}
                     <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -83,12 +88,16 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm">
               {SERVICES.map((s) => (
                 <li key={s}>
-                  <Link
-                    to="/services"
+                  <a
+                    href="/#services"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection("services");
+                    }}
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {s}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
