@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useState } from "react";
 import { Menu, X, Gift, ArrowRight } from "lucide-react";
@@ -7,14 +7,49 @@ const logo = logoAsset.url;
 import { cn } from "@/lib/utils";
 
 export const NAV_LINKS = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/works", label: "Works" },
-  { to: "/testimonials", label: "Testimonials" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "services", label: "Services" },
+  { id: "works", label: "Works" },
+  { id: "testimonials", label: "Testimonials" },
+  { id: "faq", label: "FAQ" },
+  { id: "contact", label: "Contact" },
 ] as const;
+
+export function useSectionScroll() {
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  return (id: string) => {
+    if (pathname !== "/") {
+      navigate({ to: "/", hash: id });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `/#${id}`);
+    }
+  };
+}
+
+function useActiveSection() {
+  const [active, setActive] = useState("home");
+  useEffect(() => {
+    const onScroll = () => {
+      let current = "home";
+      for (const l of NAV_LINKS) {
+        const el = document.getElementById(l.id);
+        if (el && el.getBoundingClientRect().top <= 140) current = l.id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return active;
+}
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -22,6 +57,12 @@ export function SiteNav() {
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 20));
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const activeSection = useActiveSection();
+  const scrollToSection = useSectionScroll();
+  const go = (id: string) => {
+    setOpen(false);
+    scrollToSection(id);
+  };
 
   return (
     <motion.header
@@ -46,8 +87,10 @@ export function SiteNav() {
           <Link to="/" className="group flex items-center gap-2.5">
             <motion.img
               src={logo}
-              alt="SoRa"
-              className="h-9 w-9 rounded-full ring-1 ring-primary/40"
+              alt="Sora Innovative Solution Logo"
+              width={40}
+              height={40}
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 shrink-0 rounded-full object-cover ring-1 ring-primary/40"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 1 }}
             />
@@ -59,11 +102,15 @@ export function SiteNav() {
 
           <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((l) => {
-              const active = pathname === l.to;
+              const active = pathname === "/" && activeSection === l.id;
               return (
-                <motion.div key={l.to} whileHover={{ y: -3, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                  <Link
-                    to={l.to}
+                <motion.div key={l.id} whileHover={{ y: -3, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
+                  <a
+                    href={`/#${l.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      go(l.id);
+                    }}
                     className={cn(
                       "group relative block px-3 py-1.5 text-sm font-medium rounded-full transition-colors",
                       active
@@ -81,7 +128,7 @@ export function SiteNav() {
                     <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 transition-opacity group-hover:opacity-100" />
                     <span className="relative">{l.label}</span>
                     <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold to-transparent transition-all duration-300 group-hover:w-2/3" />
-                  </Link>
+                  </a>
                 </motion.div>
               );
             })}
@@ -99,12 +146,16 @@ export function SiteNav() {
                 <span className="relative h-1.5 w-1.5 rounded-full bg-gold" />
               </span>
             </button>
-            <Link
-              to="/contact"
+            <a
+              href="/#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                go("contact");
+              }}
               className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow-blue hover:scale-[1.03] transition-transform"
             >
               Get Free Quote <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            </a>
             <button
               onClick={() => setOpen((v) => !v)}
               className="lg:hidden inline-flex items-center justify-center rounded-full border border-border p-2"
@@ -125,19 +176,22 @@ export function SiteNav() {
           >
             <div className="grid gap-1">
               {NAV_LINKS.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
+                <a
+                  key={l.id}
+                  href={`/#${l.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    go(l.id);
+                  }}
                   className={cn(
-                    "rounded-xl px-3 py-2 text-sm font-medium",
-                    pathname === l.to
+                    "block rounded-xl px-3 py-2 text-sm font-medium",
+                    pathname === "/" && activeSection === l.id
                       ? "bg-primary/15 text-foreground"
                       : "text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {l.label}
-                </Link>
+                </a>
               ))}
               <button
                 onClick={() => {
@@ -148,13 +202,16 @@ export function SiteNav() {
               >
                 <Gift className="h-4 w-4" /> View SoRa Offer
               </button>
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
+              <a
+                href="/#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  go("contact");
+                }}
                 className="mt-1 flex items-center justify-center gap-1.5 rounded-xl bg-gradient-brand px-3 py-2 text-sm font-semibold text-primary-foreground"
               >
                 Get Free Quote <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
