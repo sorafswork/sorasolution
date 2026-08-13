@@ -31,18 +31,35 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <Hero />
-      <TrustStrip />
-      <StatsBar />
-      <PortfolioPreview />
-      <ServicesPreview />
-      <WhyUs />
-      <ProcessSection />
-      <TechStack />
-      <TestimonialsPreview />
-      <FaqSection />
+      <div id="home" className="scroll-mt-28">
+        <Hero />
+        <TrustStrip />
+        <StatsBar />
+      </div>
+      <div id="about" className="scroll-mt-28">
+        <AboutSection />
+      </div>
+      <div id="services" className="scroll-mt-28">
+        <ServicesPreview />
+      </div>
+      <div id="works" className="scroll-mt-28">
+        <PortfolioPreview />
+      </div>
+      <div id="why-us" className="scroll-mt-28">
+        <WhyUs />
+        <ProcessSection />
+        <TechStack />
+      </div>
+      <div id="testimonials" className="scroll-mt-28">
+        <TestimonialsPreview />
+      </div>
+      <div id="faq" className="scroll-mt-28">
+        <FaqSection />
+      </div>
       <FinalCTA />
-      <ContactSection />
+      <div id="contact" className="scroll-mt-28">
+        <ContactSection />
+      </div>
     </>
   );
 }
