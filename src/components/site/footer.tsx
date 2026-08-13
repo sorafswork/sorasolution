@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Instagram, Mail, Phone, MessageCircle, Github, ArrowUpRight } from "lucide-react";
 import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
 const logo = logoAsset.url;
-import { NAV_LINKS } from "./nav";
+import { NAV_LINKS, useSectionScroll } from "./nav";
 
 const SERVICES = [
   "Website Development",
