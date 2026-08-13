@@ -1,6 +1,6 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, Gift, ArrowRight } from "lucide-react";
 import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
 const logo = logoAsset.url;
