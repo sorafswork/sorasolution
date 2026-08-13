@@ -86,6 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SoRa Innovative Solutions" },
+      { name: "google-site-verification", content: "hYN8d1Q6EMu45Iuwpu9p6hkSkGBrSxcTzEkhpfbhYoo" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SoRa Innovative Solutions — Innovate • Create • Deliver" },
       { name: "twitter:description", content: "Premium digital agency crafting modern websites, branding, graphic design, and content that grows your business." },
