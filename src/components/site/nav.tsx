@@ -2,7 +2,7 @@ import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useEffect, useState } from "react";
 import { Menu, X, Gift, ArrowRight } from "lucide-react";
-import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
+import logoAsset from "@/assets/sora-logo.webp.asset.json";
 const logo = logoAsset.url;
 import { cn } from "@/lib/utils";
 
