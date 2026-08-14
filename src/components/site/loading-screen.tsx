@@ -46,7 +46,7 @@ export function LoadingScreen() {
             <img
               src={logo}
               alt="SoRa"
-              className="relative h-24 w-24 rounded-full ring-2 ring-primary/60 shadow-glow-blue"
+              className="relative h-24 w-24 rounded-full object-cover ring-2 ring-primary/60 shadow-glow-blue"
             />
           </motion.div>
           <div className="mt-8 font-display text-lg">
