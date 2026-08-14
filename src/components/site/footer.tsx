@@ -26,7 +26,7 @@ export function SiteFooter() {
               <motion.img
                 src={logo}
                 alt="Sora Innovative Solution Logo"
-                className="h-10 w-10 rounded-full ring-1 ring-primary/40"
+                className="h-10 w-10 rounded-full object-cover ring-1 ring-primary/40"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 1 }}
               />
