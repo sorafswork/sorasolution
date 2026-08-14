@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import logoAsset from "@/assets/sora-icon.jpeg.asset.json";
+import logoAsset from "@/assets/sora-logo.webp.asset.json";
 const logo = logoAsset.url;
 
 export function LoadingScreen() {
