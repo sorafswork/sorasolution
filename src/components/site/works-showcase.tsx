@@ -236,6 +236,16 @@ export function WorksShowcase() {
                   {p.cat}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent opacity-90" />
+                {/* live preview sweep */}
+                <motion.div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-12 bg-gradient-to-r from-transparent via-foreground/10 to-transparent"
+                  animate={{ x: ["0%", "420%"] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: (i % 6) * 0.6 }}
+                />
+                <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full border border-primary/40 bg-background/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-primary backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 animate-ping rounded-full bg-gold" /> Live
+                </span>
                 <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-3">
                   <div>
                     <h3 className="font-display text-lg font-bold text-shimmer">{p.title}</h3>
