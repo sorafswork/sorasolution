@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import logoAsset from "@/assets/sora-logo-mark.png.asset.json";
-const logo = logoAsset.url;
+const logo = "/logo.png";
 
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
