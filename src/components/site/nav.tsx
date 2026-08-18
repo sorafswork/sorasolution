@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 export const NAV_LINKS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "services", label: "Services" },
   { id: "works", label: "Works" },
+  { id: "services", label: "Services" },
   { id: "testimonials", label: "Testimonials" },
   { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },

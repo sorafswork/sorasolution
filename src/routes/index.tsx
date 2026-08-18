@@ -294,8 +294,8 @@ function ServicesPreview() {
         ))}
       </div>
       <div className="mt-10 text-center">
-        <BrandLink to="/#services" variant="outline">
-          Explore all services <ArrowRight className="h-4 w-4" />
+        <BrandLink to="/#contact" variant="outline">
+          Discuss your project <ArrowRight className="h-4 w-4" />
         </BrandLink>
       </div>
     </section>
@@ -399,10 +399,10 @@ function FinalCTA() {
             Tell us about your project — we'll respond within 24 hours with a plan.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <BrandLink to="/contact" variant="primary">
+            <BrandLink to="/#contact" variant="primary">
               Get Free Quote <ArrowRight className="h-4 w-4" />
             </BrandLink>
-            <BrandLink to="/services" variant="gold">
+            <BrandLink to="/#services" variant="gold">
               View Services
             </BrandLink>
           </div>
