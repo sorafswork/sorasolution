@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
 import { ContactSection } from "@/components/site/contact-section";
+import { WorksShowcase } from "@/components/site/works-showcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,13 +40,11 @@ function Home() {
       <div id="about" className="scroll-mt-28">
         <AboutSection />
       </div>
+      <div id="works" className="scroll-mt-28">
+        <WorksShowcase />
+      </div>
       <div id="services" className="scroll-mt-28">
         <ServicesPreview />
-      </div>
-      <div id="works" className="scroll-mt-28">
-        <PortfolioPreview />
-      </div>
-      <div id="why-us" className="scroll-mt-28">
         <WhyUs />
         <ProcessSection />
         <TechStack />
@@ -106,8 +105,8 @@ function Hero() {
               transition={{ delay: 0.1 }}
               className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]"
             >
-              Start your journey with{" "}
-              <span className="text-shimmer">SoRa Innovative Solution</span>
+              Building Digital Experiences That{" "}
+              <span className="text-shimmer">Inspire Growth.</span>
             </motion.h1>
 
             <motion.p
@@ -128,11 +127,11 @@ function Hero() {
               transition={{ delay: 0.2 }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
-              <BrandLink to="/contact" variant="primary">
+              <BrandLink to="/#contact" variant="primary">
                 Get Started <ArrowRight className="h-4 w-4" />
               </BrandLink>
-              <BrandLink to="/works" variant="outline">
-                <Play className="h-4 w-4" /> View Portfolio
+              <BrandLink to="/#works" variant="outline">
+                <Play className="h-4 w-4" /> View Our Works
               </BrandLink>
             </motion.div>
 
@@ -295,7 +294,7 @@ function ServicesPreview() {
         ))}
       </div>
       <div className="mt-10 text-center">
-        <BrandLink to="/services" variant="outline">
+        <BrandLink to="/#services" variant="outline">
           Explore all services <ArrowRight className="h-4 w-4" />
         </BrandLink>
       </div>
@@ -340,51 +339,6 @@ function TechStack() {
       />
       <div className="mt-10">
         <TechMarquee />
-      </div>
-    </section>
-  );
-}
-
-function PortfolioPreview() {
-  const shots = [
-    { img: p1, title: "Skyfly International", cat: "Corporate Travel", url: "https://www.skyflyintl.com/" },
-    { img: p2, title: "VY Enterprises", cat: "B2B Business", url: "https://www.vyenterprises.in/" },
-    { img: p3, title: "Blush Theory Art", cat: "Personalized Gifts", url: "https://blush-theory-art-studio.lovable.app" },
-  ];
-  return (
-    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20">
-      <SectionHeader
-        eyebrow="Recent work"
-        title={<>Selected <span className="text-gradient-gold">works</span></>}
-        subtitle="A glimpse of live client projects we've recently delivered."
-      />
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {shots.map((s, i) => (
-          <motion.a
-            key={s.title}
-            href={s.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            whileHover={{ y: -6 }}
-            className="group relative block overflow-hidden rounded-3xl border border-border bg-card"
-          >
-            <img src={s.img} alt={s.title} className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-70" />
-            <div className="absolute bottom-4 left-4 right-4">
-              <div className="text-xs text-gold uppercase tracking-widest">{s.cat}</div>
-              <div className="mt-1 font-display text-lg font-bold">{s.title}</div>
-            </div>
-          </motion.a>
-        ))}
-      </div>
-      <div className="mt-8 text-center">
-        <BrandLink to="/works" variant="outline">
-          See all works <ArrowRight className="h-4 w-4" />
-        </BrandLink>
       </div>
     </section>
   );
