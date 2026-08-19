@@ -2,10 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, Play, Sparkles, CheckCircle2, Star, Target, Eye, Heart } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import p1 from "@/assets/w1.jpg";
-import p2 from "@/assets/w2.jpg";
-import p3 from "@/assets/w3.jpg";
 import servicesBanner from "@/assets/services-banner.jpg";
+import { HeroShowreel } from "@/components/site/hero-showreel";
 import { BrandLink } from "@/components/site/brand-button";
 import { SectionHeader } from "@/components/site/section-header";
 import { Counter } from "@/components/site/counter";
@@ -149,41 +147,13 @@ function Hero() {
             </motion.div>
           </div>
 
-          {/* Device mockup */}
+          {/* Animated project showreel */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.1 }}
-            className="relative mx-auto w-full max-w-lg"
           >
-            <div className="absolute -inset-10 bg-primary/25 blur-3xl rounded-full" />
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative rounded-3xl border border-border bg-card shadow-elevated overflow-hidden"
-            >
-              <div className="flex items-center gap-1.5 border-b border-border/60 px-4 py-2.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-gold" />
-                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className="ml-3 text-xs text-muted-foreground">sora-solutions.com</span>
-              </div>
-              <img src={p1} alt="" className="w-full aspect-[16/10] object-cover" />
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-8 -left-6 w-40 rounded-2xl border border-border bg-card shadow-elevated overflow-hidden"
-            >
-              <img src={p2} alt="" className="w-full aspect-[9/16] object-cover" />
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-4 w-32 rounded-xl border border-border bg-card shadow-elevated overflow-hidden"
-            >
-              <img src={p3} alt="" className="w-full aspect-[4/3] object-cover" />
-            </motion.div>
+            <HeroShowreel />
           </motion.div>
         </div>
       </div>
