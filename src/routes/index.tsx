@@ -30,32 +30,35 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <div id="home" className="scroll-mt-28">
-        <Hero />
-        <TrustStrip />
-        <StatsBar />
-      </div>
-      <div id="about" className="scroll-mt-28">
-        <AboutSection />
-      </div>
-      <div id="works" className="scroll-mt-28">
-        <WorksShowcase />
-      </div>
-      <div id="services" className="scroll-mt-28">
-        <ServicesPreview />
-        <WhyUs />
-        <ProcessSection />
-        <TechStack />
-      </div>
-      <div id="testimonials" className="scroll-mt-28">
-        <TestimonialsPreview />
-      </div>
-      <div id="faq" className="scroll-mt-28">
-        <FaqSection />
-      </div>
-      <FinalCTA />
-      <div id="contact" className="scroll-mt-28">
-        <ContactSection />
+      <CinematicBackdrop />
+      <div className="relative z-10">
+        <div id="home" className="scroll-mt-28">
+          <Hero />
+          <TrustStrip />
+          <StatsBar />
+        </div>
+        <div id="about" className="scroll-mt-28">
+          <AboutSection />
+        </div>
+        <div id="works" className="scroll-mt-28">
+          <WorksShowcase />
+        </div>
+        <div id="services" className="scroll-mt-28">
+          <ServicesPreview />
+          <WhyUs />
+          <ProcessSection />
+          <TechStack />
+        </div>
+        <div id="testimonials" className="scroll-mt-28">
+          <TestimonialsPreview />
+        </div>
+        <div id="faq" className="scroll-mt-28">
+          <FaqSection />
+        </div>
+        <FinalCTA />
+        <div id="contact" className="scroll-mt-28">
+          <ContactSection />
+        </div>
       </div>
     </>
   );
