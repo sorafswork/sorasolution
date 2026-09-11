@@ -369,6 +369,9 @@ function FinalCTA() {
             Ready to launch something{" "}
             <span className="text-shimmer">unforgettable?</span>
           </h2>
+          <p className="mt-4 font-display text-lg md:text-2xl font-bold uppercase tracking-[0.18em] text-gradient-gold">
+            Let's build something rare.
+          </p>
           <p className="mt-4 mx-auto max-w-xl text-muted-foreground">
             Tell us about your project — we'll respond within 24 hours with a plan.
           </p>
