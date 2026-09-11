@@ -19,9 +19,9 @@ const schema = z.object({
 
 const DETAILS = [
   { Icon: Mail, label: "Email", value: "sorafs.work@gmail.com", href: "mailto:sorafs.work@gmail.com" },
-  { Icon: Phone, label: "Phone", value: "+91 77087 04523", href: "tel:+917708704523" },
-  { Icon: MessageCircle, label: "WhatsApp", value: "+91 77087 04523", href: "https://wa.me/917708704523" },
-  { Icon: Instagram, label: "Instagram", value: "@sora_official_id", href: "https://instagram.com/sora_official_id" },
+  { Icon: Phone, label: "Phone", value: "+91 9500282415", href: "tel:+919500282415" },
+  { Icon: MessageCircle, label: "WhatsApp", value: "+91 7397732494", href: "https://wa.me/917397732494" },
+  { Icon: Instagram, label: "Instagram", value: "@sora.official.id", href: "https://instagram.com/sora.official.id" },
   { Icon: Github, label: "GitHub", value: "sorafswork", href: "https://github.com/sorafswork" },
 ];
 
@@ -125,7 +125,7 @@ export function ContactSection() {
                   <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com" maxLength={120} />
                 </Field>
                 <Field label="Phone Number">
-                  <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+91 77087 04523" maxLength={20} />
+                  <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+91 9500282415" maxLength={20} />
                 </Field>
                 <Field label="Service Required">
                   <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
