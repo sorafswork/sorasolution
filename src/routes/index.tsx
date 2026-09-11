@@ -14,6 +14,7 @@ import {
 import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
 import { ContactSection } from "@/components/site/contact-section";
 import { WorksShowcase } from "@/components/site/works-showcase";
+import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
 
 export const Route = createFileRoute("/")({
   head: () => ({
