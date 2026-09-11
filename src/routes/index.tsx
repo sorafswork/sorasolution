@@ -14,6 +14,7 @@ import {
 import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
 import { ContactSection } from "@/components/site/contact-section";
 import { WorksShowcase } from "@/components/site/works-showcase";
+import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,32 +31,35 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <div id="home" className="scroll-mt-28">
-        <Hero />
-        <TrustStrip />
-        <StatsBar />
-      </div>
-      <div id="about" className="scroll-mt-28">
-        <AboutSection />
-      </div>
-      <div id="works" className="scroll-mt-28">
-        <WorksShowcase />
-      </div>
-      <div id="services" className="scroll-mt-28">
-        <ServicesPreview />
-        <WhyUs />
-        <ProcessSection />
-        <TechStack />
-      </div>
-      <div id="testimonials" className="scroll-mt-28">
-        <TestimonialsPreview />
-      </div>
-      <div id="faq" className="scroll-mt-28">
-        <FaqSection />
-      </div>
-      <FinalCTA />
-      <div id="contact" className="scroll-mt-28">
-        <ContactSection />
+      <CinematicBackdrop />
+      <div className="relative z-10">
+        <div id="home" className="scroll-mt-28">
+          <Hero />
+          <TrustStrip />
+          <StatsBar />
+        </div>
+        <div id="about" className="scroll-mt-28">
+          <AboutSection />
+        </div>
+        <div id="works" className="scroll-mt-28">
+          <WorksShowcase />
+        </div>
+        <div id="services" className="scroll-mt-28">
+          <ServicesPreview />
+          <WhyUs />
+          <ProcessSection />
+          <TechStack />
+        </div>
+        <div id="testimonials" className="scroll-mt-28">
+          <TestimonialsPreview />
+        </div>
+        <div id="faq" className="scroll-mt-28">
+          <FaqSection />
+        </div>
+        <FinalCTA />
+        <div id="contact" className="scroll-mt-28">
+          <ContactSection />
+        </div>
       </div>
     </>
   );
@@ -365,6 +369,9 @@ function FinalCTA() {
             Ready to launch something{" "}
             <span className="text-shimmer">unforgettable?</span>
           </h2>
+          <p className="mt-4 font-display text-lg md:text-2xl font-bold uppercase tracking-[0.18em] text-gradient-gold">
+            Let's build something rare.
+          </p>
           <p className="mt-4 mx-auto max-w-xl text-muted-foreground">
             Tell us about your project — we'll respond within 24 hours with a plan.
           </p>
