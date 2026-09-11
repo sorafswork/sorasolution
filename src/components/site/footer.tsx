@@ -40,10 +40,10 @@ export function SiteFooter() {
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
-                { Icon: Instagram, href: "https://instagram.com/sora_official_id", label: "Instagram" },
-                { Icon: MessageCircle, href: "https://wa.me/917708704523", label: "WhatsApp" },
+                { Icon: Instagram, href: "https://instagram.com/sora.official.id", label: "Instagram" },
+                { Icon: MessageCircle, href: "https://wa.me/917397732494", label: "WhatsApp" },
                 { Icon: Mail, href: "mailto:sorafs.work@gmail.com", label: "Email" },
-                { Icon: Phone, href: "tel:+917708704523", label: "Phone" },
+                { Icon: Phone, href: "tel:+919500282415", label: "Phone" },
                 { Icon: Github, href: "https://github.com/sorafswork", label: "GitHub" },
               ].map(({ Icon, href, label }) => (
                 <motion.a
