@@ -17,12 +17,17 @@ export function LoadingScreen() {
       return;
     }
 
-    sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
     const brandTimer = window.setTimeout(() => setBrandVisible(true), 3400);
-    const fallbackTimer = window.setTimeout(() => setVisible(false), 7000);
+    const fallbackTimer = window.setTimeout(() => {
+      sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+      setVisible(false);
+    }, 7000);
     const video = videoRef.current;
     if (video) {
-      void video.play().catch(() => setVisible(false));
+      void video.play().catch(() => {
+        sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+        setVisible(false);
+      });
     }
 
     return () => {
@@ -48,8 +53,14 @@ export function LoadingScreen() {
             playsInline
             preload="auto"
             aria-hidden
-            onEnded={() => setVisible(false)}
-            onError={() => setVisible(false)}
+            onEnded={() => {
+              sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+              setVisible(false);
+            }}
+            onError={() => {
+              sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+              setVisible(false);
+            }}
             onTimeUpdate={(event) => {
               if (event.currentTarget.currentTime >= 3.4) setBrandVisible(true);
             }}
