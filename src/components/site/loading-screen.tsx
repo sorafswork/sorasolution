@@ -1,24 +1,41 @@
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import introVideoMp4 from "@/assets/sora-intro-web.mp4.asset.json";
+import introVideoWebm from "@/assets/sora-intro-web.webm.asset.json";
 const logo = "/logo.png";
+
+const SPLASH_SEEN_KEY = "sora-intro-seen";
 
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [brandVisible, setBrandVisible] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    let raf = 0;
-    const start = performance.now();
-    const duration = 1400;
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - start) / duration);
-      setProgress(Math.round(p * 100));
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else setTimeout(() => setVisible(false), 250);
+    if (sessionStorage.getItem(SPLASH_SEEN_KEY) || prefersReducedMotion) {
+      setVisible(false);
+      return;
+    }
+
+    const brandTimer = window.setTimeout(() => setBrandVisible(true), 3400);
+    const fallbackTimer = window.setTimeout(() => {
+      sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+      setVisible(false);
+    }, 7000);
+    const video = videoRef.current;
+    if (video) {
+      void video.play().catch(() => {
+        sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+        setVisible(false);
+      });
+    }
+
+    return () => {
+      window.clearTimeout(brandTimer);
+      window.clearTimeout(fallbackTimer);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <AnimatePresence>
@@ -27,40 +44,70 @@ export function LoadingScreen() {
           key="loader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-[100] overflow-hidden bg-background"
         >
-          <div className="absolute inset-0 bg-grid opacity-30" />
-          <motion.div
-            initial={{ scale: 0.6, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 120 }}
-            className="relative"
+          <video
+            ref={videoRef}
+            muted
+            playsInline
+            preload="auto"
+            aria-hidden
+            onEnded={() => {
+              sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+              setVisible(false);
+            }}
+            onError={() => {
+              sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
+              setVisible(false);
+            }}
+            onTimeUpdate={(event) => {
+              if (event.currentTarget.currentTime >= 3.4) setBrandVisible(true);
+            }}
+            className="absolute inset-0 h-full w-full object-cover"
           >
+            <source src={introVideoWebm.url} type="video/webm" />
+            <source src={introVideoMp4.url} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/5 to-background/20" />
+          <AnimatePresence>
+            {brandVisible && (
+              <motion.div
+                initial={{ opacity: 0, y: 18, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-x-5 bottom-[9vh] flex flex-col items-center text-center"
+              >
+                <img
+                  src={logo}
+                  alt="SoRa Innovative Solution"
+                  className="h-16 w-16 object-contain drop-shadow-2xl md:h-20 md:w-20"
+                />
+                <h1 className="mt-4 font-display text-2xl font-bold text-foreground md:text-4xl">
+                  SoRa Innovative Solution
+                </h1>
+                <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-gold md:text-base">
+                  Building Digital Growth. Creating Smart Solutions.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          {!brandVisible && (
             <motion.div
-              className="absolute inset-0 rounded-full bg-primary/40 blur-3xl"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <img
-              src={logo}
-              alt="SoRa"
-              className="relative h-24 w-24 rounded-2xl object-contain ring-2 ring-primary/60 shadow-glow-blue"
-            />
-          </motion.div>
-          <div className="mt-8 font-display text-lg">
-            <span className="text-gradient-brand font-bold">SoRa</span>{" "}
-            <span className="text-foreground/80">Innovative Solution</span>
-          </div>
-          <div className="mt-6 h-1 w-64 overflow-hidden rounded-full bg-muted">
-            <motion.div
-              className="h-full bg-gradient-brand"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <div className="mt-2 text-xs text-muted-foreground tabular-nums">
-            {progress}%
-          </div>
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="absolute bottom-7 left-1/2 h-px w-28 -translate-x-1/2 overflow-hidden bg-border/50"
+            >
+              <motion.div
+                className="h-full bg-gold"
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </motion.div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
