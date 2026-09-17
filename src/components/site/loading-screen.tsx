@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import introVideo from "@/assets/sora-intro.mp4.asset.json";
+import introVideo from "@/assets/sora-intro-web.mp4.asset.json";
 const logo = "/logo.png";
 
 const SPLASH_SEEN_KEY = "sora-intro-seen";
