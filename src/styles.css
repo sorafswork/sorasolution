@@ -69,7 +69,7 @@
 
 :root {
   --radius: 1rem;
-  /* SoRa Premium — deep navy #050816, royal blue #2563EB, metallic gold #F4B400. */
+  /* SoRa Premium — deep navy, royal blue, cyan and polished silver. */
   --background: oklch(0.13 0.035 272);     /* deep navy */
   --foreground: oklch(0.97 0.008 250);     /* clean white-blue */
   --card: oklch(0.18 0.038 268);
@@ -84,7 +84,7 @@
   --muted-foreground: oklch(0.76 0.02 255);
   --accent: oklch(0.62 0.17 250);          /* bright azure */
   --accent-foreground: oklch(0.99 0.005 250);
-  --gold: oklch(0.79 0.16 84);             /* metallic gold */
+  --gold: oklch(0.86 0.018 240);           /* polished silver */
   --gold-foreground: oklch(0.13 0.035 272);
   --purple: oklch(0.55 0.22 264);
   --purple-foreground: oklch(0.99 0.005 250);
@@ -112,20 +112,20 @@
     oklch(0.28 0.10 268) 0%,
     oklch(0.55 0.22 264) 45%,
     oklch(0.65 0.17 250) 75%,
-    oklch(0.79 0.16 84) 100%);
+    oklch(0.86 0.018 240) 100%);
   --gradient-gold: linear-gradient(135deg,
-    oklch(0.90 0.12 92) 0%,
-    oklch(0.79 0.16 84) 50%,
-    oklch(0.66 0.14 66) 100%);
+    oklch(0.98 0.006 240) 0%,
+    oklch(0.86 0.018 240) 50%,
+    oklch(0.66 0.025 245) 100%);
   --gradient-blue: linear-gradient(135deg,
     oklch(0.28 0.12 268) 0%,
     oklch(0.55 0.22 264) 100%);
   --gradient-brand-soft: linear-gradient(135deg,
     oklch(0.55 0.22 264 / 0.24) 0%,
     oklch(0.62 0.17 250 / 0.20) 50%,
-    oklch(0.79 0.16 84 / 0.18) 100%);
+    oklch(0.86 0.018 240 / 0.18) 100%);
   --shadow-glow-blue: 0 0 45px oklch(0.55 0.22 264 / 0.55);
-  --shadow-glow-gold: 0 0 45px oklch(0.79 0.16 84 / 0.45);
+  --shadow-glow-gold: 0 0 45px oklch(0.86 0.018 240 / 0.38);
   --shadow-elevated: 0 25px 70px -25px oklch(0.06 0.03 272 / 0.8);
   --noise: none;
 }
@@ -203,7 +203,7 @@
   background: linear-gradient(90deg,
     oklch(0.97 0.01 250) 0%,
     oklch(0.65 0.20 258) 25%,
-    oklch(0.79 0.16 84) 50%,
+    oklch(0.86 0.018 240) 50%,
     oklch(0.55 0.22 264) 75%,
     oklch(0.97 0.01 250) 100%);
   background-size: 200% auto;
