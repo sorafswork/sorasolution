@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import introVideo from "@/assets/sora-intro-silver.mp4.asset.json";
 const logo = "/logo.png";
 
-const SPLASH_SEEN_KEY = "sora-intro-seen";
+const SPLASH_SEEN_KEY = "sora-intro-silver-seen";
 
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
