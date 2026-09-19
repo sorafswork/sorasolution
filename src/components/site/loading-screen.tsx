@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import introVideo from "@/assets/sora-intro-silver.mp4.asset.json";
+import introVideoWebm from "@/assets/sora-intro-silver.webm.asset.json";
 const logo = "/logo.png";
 
 const SPLASH_SEEN_KEY = "sora-intro-silver-seen";
@@ -50,7 +51,6 @@ export function LoadingScreen() {
         >
           <video
             ref={videoRef}
-            src={introVideo.url}
             muted
             playsInline
             preload="auto"
@@ -68,7 +68,10 @@ export function LoadingScreen() {
               if (event.currentTarget.currentTime >= 1.4) setBrandVisible(true);
             }}
             className="absolute inset-0 h-full w-full object-cover"
-          />
+          >
+            <source src={introVideoWebm.url} type="video/webm" />
+            <source src={introVideo.url} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/5 to-background/20" />
           <AnimatePresence>
             {brandVisible && (
