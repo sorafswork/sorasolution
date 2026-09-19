@@ -9,6 +9,7 @@ export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
   const [brandVisible, setBrandVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const exitTimerRef = useRef<number | null>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export function LoadingScreen() {
       return;
     }
 
-    const brandTimer = window.setTimeout(() => setBrandVisible(true), 3400);
+    const brandTimer = window.setTimeout(() => setBrandVisible(true), 1400);
     const fallbackTimer = window.setTimeout(() => {
       sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
       setVisible(false);
@@ -33,6 +34,7 @@ export function LoadingScreen() {
     return () => {
       window.clearTimeout(brandTimer);
       window.clearTimeout(fallbackTimer);
+      if (exitTimerRef.current !== null) window.clearTimeout(exitTimerRef.current);
     };
   }, [prefersReducedMotion]);
 
@@ -55,14 +57,15 @@ export function LoadingScreen() {
             aria-hidden
             onEnded={() => {
               sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
-              setVisible(false);
+              setBrandVisible(true);
+              exitTimerRef.current = window.setTimeout(() => setVisible(false), 900);
             }}
             onError={() => {
               sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
               setVisible(false);
             }}
             onTimeUpdate={(event) => {
-              if (event.currentTarget.currentTime >= 3.4) setBrandVisible(true);
+              if (event.currentTarget.currentTime >= 1.4) setBrandVisible(true);
             }}
             className="absolute inset-0 h-full w-full object-cover"
           />
