@@ -1,15 +1,16 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import introVideoMp4 from "@/assets/sora-intro-web.mp4.asset.json";
-import introVideoWebm from "@/assets/sora-intro-web.webm.asset.json";
+import introVideo from "@/assets/sora-intro-silver.mp4.asset.json";
+import introVideoWebm from "@/assets/sora-intro-silver.webm.asset.json";
 const logo = "/logo.png";
 
-const SPLASH_SEEN_KEY = "sora-intro-seen";
+const SPLASH_SEEN_KEY = "sora-intro-silver-seen";
 
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
   const [brandVisible, setBrandVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const exitTimerRef = useRef<number | null>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export function LoadingScreen() {
       return;
     }
 
-    const brandTimer = window.setTimeout(() => setBrandVisible(true), 3400);
+    const brandTimer = window.setTimeout(() => setBrandVisible(true), 1400);
     const fallbackTimer = window.setTimeout(() => {
       sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
       setVisible(false);
@@ -34,6 +35,7 @@ export function LoadingScreen() {
     return () => {
       window.clearTimeout(brandTimer);
       window.clearTimeout(fallbackTimer);
+      if (exitTimerRef.current !== null) window.clearTimeout(exitTimerRef.current);
     };
   }, [prefersReducedMotion]);
 
@@ -55,19 +57,20 @@ export function LoadingScreen() {
             aria-hidden
             onEnded={() => {
               sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
-              setVisible(false);
+              setBrandVisible(true);
+              exitTimerRef.current = window.setTimeout(() => setVisible(false), 900);
             }}
             onError={() => {
               sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
               setVisible(false);
             }}
             onTimeUpdate={(event) => {
-              if (event.currentTarget.currentTime >= 3.4) setBrandVisible(true);
+              if (event.currentTarget.currentTime >= 1.4) setBrandVisible(true);
             }}
             className="absolute inset-0 h-full w-full object-cover"
           >
             <source src={introVideoWebm.url} type="video/webm" />
-            <source src={introVideoMp4.url} type="video/mp4" />
+            <source src={introVideo.url} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/5 to-background/20" />
           <AnimatePresence>
