@@ -1,14 +1,21 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import introVideo from "@/assets/sora-intro-silver.mp4.asset.json";
-import introVideoWebm from "@/assets/sora-intro-silver.webm.asset.json";
+import introVideo from "@/assets/sora-client-journey-intro.mp4.asset.json";
 const logo = "/logo.png";
 
-const SPLASH_SEEN_KEY = "sora-intro-silver-seen";
+const SPLASH_SEEN_KEY = "sora-client-journey-intro-seen";
+const journeySteps = [
+  "Client Consultation",
+  "Planning & Business Audit",
+  "Registration & Onboarding",
+  "Work Begins",
+  "Ongoing Business Support",
+];
 
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
   const [brandVisible, setBrandVisible] = useState(false);
+  const [journeyStep, setJourneyStep] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const exitTimerRef = useRef<number | null>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -19,11 +26,11 @@ export function LoadingScreen() {
       return;
     }
 
-    const brandTimer = window.setTimeout(() => setBrandVisible(true), 1400);
+    const brandTimer = window.setTimeout(() => setBrandVisible(true), 8000);
     const fallbackTimer = window.setTimeout(() => {
       sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
       setVisible(false);
-    }, 7000);
+    }, 12000);
     const video = videoRef.current;
     if (video) {
       void video.play().catch(() => {
@@ -65,14 +72,40 @@ export function LoadingScreen() {
               setVisible(false);
             }}
             onTimeUpdate={(event) => {
-              if (event.currentTarget.currentTime >= 1.4) setBrandVisible(true);
+              const currentTime = event.currentTarget.currentTime;
+              setJourneyStep(Math.min(Math.floor(currentTime / 1.6), journeySteps.length - 1));
+              if (currentTime >= 8) setBrandVisible(true);
             }}
             className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src={introVideoWebm.url} type="video/webm" />
-            <source src={introVideo.url} type="video/mp4" />
-          </video>
+            src={introVideo.url}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/5 to-background/20" />
+          <AnimatePresence mode="wait">
+            {!brandVisible && (
+              <motion.div
+                key={journeySteps[journeyStep]}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-x-5 bottom-[11vh] text-center"
+              >
+                <p className="font-display text-lg font-semibold text-foreground drop-shadow-2xl md:text-2xl">
+                  {journeySteps[journeyStep]}
+                </p>
+                <div className="mx-auto mt-4 flex w-fit gap-2" aria-hidden>
+                  {journeySteps.map((step, index) => (
+                    <span
+                      key={step}
+                      className={`h-1 rounded-full transition-all duration-500 ${
+                        index === journeyStep ? "w-7 bg-gold" : "w-2 bg-foreground/35"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <AnimatePresence>
             {brandVisible && (
               <motion.div
@@ -96,21 +129,6 @@ export function LoadingScreen() {
               </motion.div>
             )}
           </AnimatePresence>
-          {!brandVisible && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute bottom-7 left-1/2 h-px w-28 -translate-x-1/2 overflow-hidden bg-border/50"
-            >
-              <motion.div
-                className="h-full bg-gold"
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
-          )}
         </motion.div>
       )}
     </AnimatePresence>
