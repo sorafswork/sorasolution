@@ -15,16 +15,35 @@ import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site
 import { ContactSection } from "@/components/site/contact-section";
 import { WorksShowcase } from "@/components/site/works-showcase";
 import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
+import { pageSeo, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "SoRa Innovative Solution — Your Vision. Our Innovation." },
-      { name: "description", content: "Start your journey with SoRa Innovative Solution — premium websites, branding, video, and content that grow your business." },
-      { property: "og:title", content: "SoRa Innovative Solution" },
-      { property: "og:description", content: "Your Vision. Our Innovation. Premium digital services delivered end-to-end." },
-    ],
-  }),
+  head: () => {
+    const seo = pageSeo({
+      path: "/",
+      title: "SoRa Innovative Solution — Web Design, Branding & Digital Growth",
+      description:
+        "SoRa Innovative Solution builds premium websites, brand identities, graphic design and content that turn ambitious ideas into measurable business growth.",
+    });
+    return {
+      ...seo,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "SoRa Innovative Solution",
+            url: `${SITE_URL}/`,
+            logo: `${SITE_URL}/logo.png`,
+            email: "sorafs.work@gmail.com",
+            telephone: "+91 9500282415",
+            sameAs: ["https://instagram.com/sora.official.id", "https://github.com/sorafswork"],
+          }),
+        },
+      ],
+    };
+  },
   component: Home,
 });
 
@@ -69,7 +88,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden pt-8 md:pt-16">
       <div className="absolute inset-0 -z-10">
-        <img src={heroBg} alt="" className="h-full w-full object-cover opacity-25" />
+        <img src={heroBg} alt="" aria-hidden className="h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
         {/* Moving video-like aurora */}
         <div
@@ -224,9 +243,9 @@ function ServicesPreview() {
         <div className="absolute inset-0 flex items-center">
           <div className="px-6 md:px-12 max-w-2xl">
             <div className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-gold">What we do</div>
-            <h3 className="mt-2 font-display text-2xl md:text-4xl font-bold leading-tight">
+            <p className="mt-2 font-display text-2xl md:text-4xl font-bold leading-tight">
               Premium services, <span className="text-gradient-brand">delivered end-to-end</span>
-            </h3>
+            </p>
           </div>
         </div>
       </motion.div>
@@ -249,7 +268,7 @@ function ServicesPreview() {
             <div className="relative overflow-hidden">
               <img
                 src={s.image}
-                alt={`${s.title} poster`}
+                alt={`${s.title} service by SoRa Innovative Solution — ${s.desc}`}
                 width={1200}
                 height={800}
                 loading="lazy"

@@ -1,18 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/section-header";
 import { WorksShowcase } from "@/components/site/works-showcase";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/works")({
-  head: () => ({
-    meta: [
-      { title: "Works — SoRa Innovative Solutions" },
-      { name: "description", content: "Selected websites, branding, and design work from SoRa Innovative Solutions." },
-      { property: "og:title", content: "Works — SoRa Innovative Solutions" },
-      { property: "og:description", content: "A gallery of premium websites, brands, and design work." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/works",
+      title: "Our Works — Live Client Websites by SoRa Innovative Solution",
+      description:
+        "See live client projects delivered by SoRa Innovative Solution, including business websites, e-commerce stores, portfolios and product showcases.",
+    }),
   component: Works,
 });
 

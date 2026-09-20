@@ -3,16 +3,16 @@ import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { PageHero } from "@/components/site/section-header";
 import { TESTIMONIALS } from "@/lib/site-data";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/testimonials")({
-  head: () => ({
-    meta: [
-      { title: "Testimonials — SoRa Innovative Solutions" },
-      { name: "description", content: "Real feedback from founders, marketers, and creators who trust SoRa Innovative Solutions." },
-      { property: "og:title", content: "Testimonials — SoRa Innovative Solutions" },
-      { property: "og:description", content: "What our clients say about working with SoRa." },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/testimonials",
+      title: "Client Testimonials — SoRa Innovative Solution Reviews",
+      description:
+        "Read honest feedback from founders, marketers and creators about working with SoRa Innovative Solution on websites, branding and content projects.",
+    }),
   component: Testimonials,
 });
 

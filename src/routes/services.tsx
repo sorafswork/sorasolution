@@ -4,16 +4,16 @@ import { ArrowRight, Check } from "lucide-react";
 import { PageHero } from "@/components/site/section-header";
 import { BrandLink } from "@/components/site/brand-button";
 import { SERVICES } from "@/lib/site-data";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — SoRa Innovative Solutions" },
-      { name: "description", content: "Web development, branding, graphic design, content, SEO, UI/UX, marketing and more — premium services under one roof." },
-      { property: "og:title", content: "Services — SoRa Innovative Solutions" },
-      { property: "og:description", content: "Premium digital services: web, branding, design, content, SEO, marketing." },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/services",
+      title: "Digital Services — Web Development, Branding, SEO & Marketing",
+      description:
+        "Explore SoRa Innovative Solution services: website development, brand identity, graphic design, content writing, SEO, UI/UX, social media and maintenance.",
+    }),
   component: Services,
 });
 
@@ -40,7 +40,7 @@ function Services() {
             <div className="relative overflow-hidden">
               <img
                 src={s.image}
-                alt={`${s.title} poster`}
+                alt={`${s.title} service by SoRa Innovative Solution — ${s.desc}`}
                 width={1200}
                 height={800}
                 loading="lazy"
