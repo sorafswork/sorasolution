@@ -44,7 +44,7 @@ function About() {
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground">
                 <p.icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold">{p.title}</h3>
+              <h2 className="mt-4 font-display text-xl font-bold">{p.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}

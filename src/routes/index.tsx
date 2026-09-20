@@ -88,7 +88,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden pt-8 md:pt-16">
       <div className="absolute inset-0 -z-10">
-        <img src={heroBg} alt="" className="h-full w-full object-cover opacity-25" />
+        <img src={heroBg} alt="" aria-hidden className="h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
         {/* Moving video-like aurora */}
         <div
@@ -243,9 +243,9 @@ function ServicesPreview() {
         <div className="absolute inset-0 flex items-center">
           <div className="px-6 md:px-12 max-w-2xl">
             <div className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-gold">What we do</div>
-            <h3 className="mt-2 font-display text-2xl md:text-4xl font-bold leading-tight">
+            <p className="mt-2 font-display text-2xl md:text-4xl font-bold leading-tight">
               Premium services, <span className="text-gradient-brand">delivered end-to-end</span>
-            </h3>
+            </p>
           </div>
         </div>
       </motion.div>
@@ -268,7 +268,7 @@ function ServicesPreview() {
             <div className="relative overflow-hidden">
               <img
                 src={s.image}
-                alt={`${s.title} poster`}
+                alt={`${s.title} service by SoRa Innovative Solution — ${s.desc}`}
                 width={1200}
                 height={800}
                 loading="lazy"
