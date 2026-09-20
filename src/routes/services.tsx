@@ -40,7 +40,7 @@ function Services() {
             <div className="relative overflow-hidden">
               <img
                 src={s.image}
-                alt={`${s.title} poster`}
+                alt={`${s.title} service by SoRa Innovative Solution — ${s.desc}`}
                 width={1200}
                 height={800}
                 loading="lazy"
