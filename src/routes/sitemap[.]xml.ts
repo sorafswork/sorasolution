@@ -1,21 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-const FALLBACK_BASE_URL = "https://sora-innovative-solution.lovable.app";
-
-/** Use the domain the request actually arrived on, so the sitemap is correct
- *  on the Lovable preview, on Vercel and on the custom domain alike. */
-function resolveBaseUrl(request: Request): string {
-  try {
-    const url = new URL(request.url);
-    const host = request.headers.get("x-forwarded-host") ?? url.host;
-    const proto = request.headers.get("x-forwarded-proto") ?? url.protocol.replace(":", "");
-    if (!host) return FALLBACK_BASE_URL;
-    return `${proto}://${host}`;
-  } catch {
-    return FALLBACK_BASE_URL;
-  }
-}
+import { SITE_URL } from "@/lib/seo";
 
 interface SitemapEntry {
   path: string;
