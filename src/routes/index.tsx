@@ -15,16 +15,35 @@ import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site
 import { ContactSection } from "@/components/site/contact-section";
 import { WorksShowcase } from "@/components/site/works-showcase";
 import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
+import { pageSeo, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "SoRa Innovative Solution — Your Vision. Our Innovation." },
-      { name: "description", content: "Start your journey with SoRa Innovative Solution — premium websites, branding, video, and content that grow your business." },
-      { property: "og:title", content: "SoRa Innovative Solution" },
-      { property: "og:description", content: "Your Vision. Our Innovation. Premium digital services delivered end-to-end." },
-    ],
-  }),
+  head: () => {
+    const seo = pageSeo({
+      path: "/",
+      title: "SoRa Innovative Solution — Web Design, Branding & Digital Growth",
+      description:
+        "SoRa Innovative Solution builds premium websites, brand identities, graphic design and content that turn ambitious ideas into measurable business growth.",
+    });
+    return {
+      ...seo,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "SoRa Innovative Solution",
+            url: `${SITE_URL}/`,
+            logo: `${SITE_URL}/logo.png`,
+            email: "sorafs.work@gmail.com",
+            telephone: "+91 9500282415",
+            sameAs: ["https://instagram.com/sora.official.id", "https://github.com/sorafswork"],
+          }),
+        },
+      ],
+    };
+  },
   component: Home,
 });
 

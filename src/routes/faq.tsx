@@ -7,16 +7,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQS } from "@/lib/site-data";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/faq")({
-  head: () => ({
-    meta: [
-      { title: "FAQ — SoRa Innovative Solutions" },
-      { name: "description", content: "Answers to the most common questions about working with SoRa Innovative Solutions." },
-      { property: "og:title", content: "FAQ — SoRa Innovative Solutions" },
-      { property: "og:description", content: "Timelines, revisions, tech, SEO, support, and payment terms." },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/faq",
+      title: "FAQ — Project Timelines, Revisions, Support & Pricing",
+      description:
+        "Answers to common questions about working with SoRa Innovative Solution: project timelines, revisions, SEO, ongoing support and payment terms.",
+    }),
   component: FAQ,
 });
 

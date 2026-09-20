@@ -8,16 +8,16 @@ import { PageHero } from "@/components/site/section-header";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — SoRa Innovative Solutions" },
-      { name: "description", content: "Get in touch with SoRa Innovative Solutions — email, phone, WhatsApp, or send a project brief." },
-      { property: "og:title", content: "Contact SoRa Innovative Solutions" },
-      { property: "og:description", content: "Start your project or say hello." },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/contact",
+      title: "Contact SoRa Innovative Solution — Get a Free Project Quote",
+      description:
+        "Contact SoRa Innovative Solution by email, phone or WhatsApp, or send your project brief online and get a response with a clear plan within 24 hours.",
+    }),
   component: Contact,
 });
 

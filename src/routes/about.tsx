@@ -3,16 +3,16 @@ import { motion } from "motion/react";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/section-header";
 import { BrandLink } from "@/components/site/brand-button";
+import { pageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — SoRa Innovative Solutions" },
-      { name: "description", content: "Meet the team behind SoRa Innovative Solutions — a modern digital agency crafting premium web, brand, and content experiences." },
-      { property: "og:title", content: "About SoRa Innovative Solutions" },
-      { property: "og:description", content: "A modern digital agency crafting impactful digital experiences." },
-    ],
-  }),
+  head: () =>
+    pageSeo({
+      path: "/about",
+      title: "About SoRa Innovative Solution — Our Mission, Vision & Values",
+      description:
+        "Learn how SoRa Innovative Solution combines technology, creativity and strategy to help businesses build strong online identities and grow with confidence.",
+    }),
   component: About,
 });
 
