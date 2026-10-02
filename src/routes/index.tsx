@@ -14,6 +14,7 @@ import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site
 import { ContactSection } from "@/components/site/contact-section";
 import { WorksShowcase } from "@/components/site/works-showcase";
 import { pageSeo, SITE_URL } from "@/lib/seo";
+import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -48,6 +49,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
+      <CinematicBackdrop />
       <div className="relative z-10">
         <div id="home" className="scroll-mt-28">
           <Hero />
