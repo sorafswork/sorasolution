@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Play, Sparkles, CheckCircle2, Star, Target, Eye, Heart } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowRight, Play, Star, Target, Eye, Heart } from "lucide-react";
 import servicesBanner from "@/assets/services-banner.jpg";
-import { HeroShowreel } from "@/components/site/hero-showreel";
 import { BrandLink } from "@/components/site/brand-button";
+import { HeroVideoBackground } from "@/components/site/hero-video-background";
 import { SectionHeader } from "@/components/site/section-header";
 import { Counter } from "@/components/site/counter";
 import { TechMarquee } from "@/components/site/marquee";
@@ -14,7 +13,6 @@ import {
 import { SERVICES, STATS, WHY_US, TESTIMONIALS, PROCESS, FAQS } from "@/lib/site-data";
 import { ContactSection } from "@/components/site/contact-section";
 import { WorksShowcase } from "@/components/site/works-showcase";
-import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
 import { pageSeo, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -50,7 +48,6 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <CinematicBackdrop />
       <div className="relative z-10">
         <div id="home" className="scroll-mt-28">
           <Hero />
@@ -86,45 +83,15 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-16">
-      <div className="absolute inset-0 -z-10">
-        <img src={heroBg} alt="" aria-hidden className="h-full w-full object-cover opacity-25" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
-        {/* Moving video-like aurora */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl animate-spin-slow"
-          style={{
-            background:
-              "conic-gradient(from 0deg, oklch(0.56 0.22 264 / 0.55), oklch(0.62 0.26 310 / 0.55), oklch(0.72 0.20 200 / 0.55), oklch(0.82 0.16 87 / 0.45), oklch(0.56 0.22 264 / 0.55))",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 animate-aurora opacity-70"
-          style={{
-            backgroundImage:
-              "radial-gradient(600px 400px at 20% 30%, oklch(0.62 0.26 310 / 0.35), transparent 60%), radial-gradient(500px 400px at 80% 60%, oklch(0.72 0.20 200 / 0.30), transparent 60%)",
-          }}
-        />
-      </div>
-      <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              Welcome to SoRa Innovative Solution
-            </motion.div>
-
+    <section className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden">
+      <HeroVideoBackground />
+      <div className="mx-auto w-full max-w-7xl px-4 py-16 md:px-6 md:py-24">
+        <div className="max-w-4xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]"
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-4xl font-display text-4xl font-bold leading-[1.02] md:text-6xl lg:text-7xl"
             >
               Building Digital Experiences That{" "}
               <span className="text-shimmer">Inspire Growth.</span>
@@ -133,7 +100,7 @@ function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
             >
               <span className="font-display text-xl md:text-2xl text-foreground">Your Vision. <span className="text-gradient-gold">Our Innovation.</span></span>
@@ -145,7 +112,7 @@ function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
               <BrandLink to="/#contact" variant="primary">
@@ -156,28 +123,6 @@ function Hero() {
               </BrandLink>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="mt-8 flex flex-wrap gap-4 text-sm text-muted-foreground"
-            >
-              {["Modern Websites", "Premium Branding", "Fast Delivery", "SEO Optimized"].map((b) => (
-                <div key={b} className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-gold" /> {b}
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Animated project showreel */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.1 }}
-          >
-            <HeroShowreel />
-          </motion.div>
         </div>
       </div>
     </section>

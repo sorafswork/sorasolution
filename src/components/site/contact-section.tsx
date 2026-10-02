@@ -147,7 +147,7 @@ export function ContactSection() {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-blue"
+                  className="button-motion sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-blue"
                 >
                   Submit Enquiry <Send className="h-4 w-4" />
                 </motion.button>

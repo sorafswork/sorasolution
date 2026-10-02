@@ -1,7 +1,8 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import introVideo from "@/assets/sora-client-journey-intro.mp4.asset.json";
 const logo = "/logo.png";
+const introVideo = "/media/sora-client-journey.mp4";
+const introPoster = "/media/sora-client-journey-poster.jpg";
 
 const SPLASH_SEEN_KEY = "sora-client-journey-intro-seen";
 const journeySteps = [
@@ -61,6 +62,7 @@ export function LoadingScreen() {
             muted
             playsInline
             preload="auto"
+            poster={introPoster}
             aria-hidden
             onEnded={() => {
               sessionStorage.setItem(SPLASH_SEEN_KEY, "true");
@@ -77,7 +79,7 @@ export function LoadingScreen() {
               if (currentTime >= 8) setBrandVisible(true);
             }}
             className="absolute inset-0 h-full w-full object-cover"
-            src={introVideo.url}
+            src={introVideo}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/5 to-background/20" />
           <AnimatePresence mode="wait">
