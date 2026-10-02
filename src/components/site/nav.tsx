@@ -136,7 +136,7 @@ export function SiteNav() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-sora-offer"))}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold/20 transition-colors"
+              className="button-motion hidden md:inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold/20 transition-colors"
             >
               <Gift className="h-3.5 w-3.5" />
               Offer
@@ -151,13 +151,13 @@ export function SiteNav() {
                 e.preventDefault();
                 go("contact");
               }}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow-blue hover:scale-[1.03] transition-transform"
+              className="button-motion hidden md:inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow-blue"
             >
               Get Free Quote <ArrowRight className="h-3.5 w-3.5" />
             </a>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="lg:hidden inline-flex items-center justify-center rounded-full border border-border p-2"
+              className="button-motion lg:hidden inline-flex items-center justify-center rounded-full border border-border p-2"
               aria-label="Menu"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -197,7 +197,7 @@ export function SiteNav() {
                   setOpen(false);
                   window.dispatchEvent(new CustomEvent("open-sora-offer"));
                 }}
-                className="mt-1 flex items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
+                className="button-motion mt-1 flex items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
               >
                 <Gift className="h-4 w-4" /> View SoRa Offer
               </button>
@@ -207,7 +207,7 @@ export function SiteNav() {
                   e.preventDefault();
                   go("contact");
                 }}
-                className="mt-1 flex items-center justify-center gap-1.5 rounded-xl bg-gradient-brand px-3 py-2 text-sm font-semibold text-primary-foreground"
+                className="button-motion mt-1 flex items-center justify-center gap-1.5 rounded-xl bg-gradient-brand px-3 py-2 text-sm font-semibold text-primary-foreground"
               >
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </a>

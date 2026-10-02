@@ -46,7 +46,7 @@ export function OfferModal() {
             <div className="absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-gold/30 blur-3xl" />
             <button
               onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 hover:bg-background"
+              className="button-motion absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 hover:bg-background"
               aria-label="Close"
             >
               <X className="h-4 w-4" />
@@ -89,13 +89,13 @@ export function OfferModal() {
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-blue"
+                  className="button-motion inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-blue"
                 >
                   Claim Offer <ArrowRight className="h-4 w-4" />
                 </Link>
                 <button
                   onClick={() => setOpen(false)}
-                  className="rounded-full border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground"
+                  className="button-motion rounded-full border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground"
                 >
                   Maybe later
                 </button>

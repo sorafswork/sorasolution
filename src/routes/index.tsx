@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Play, Sparkles, CheckCircle2, Star, Target, Eye, Heart } from "lucide-react";
+import { ArrowRight, Play, Star, Target, Eye, Heart } from "lucide-react";
 import servicesBanner from "@/assets/services-banner.jpg";
 import { BrandLink } from "@/components/site/brand-button";
 import { HeroVideoBackground } from "@/components/site/hero-video-background";
