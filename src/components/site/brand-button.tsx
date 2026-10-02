@@ -24,14 +24,14 @@ export function BrandLink({
   };
   const scrollToSection = useSectionScroll();
   const classes = cn(
-    "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all",
+    "button-motion inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold",
     styles[variant],
     className,
   );
   if (to.startsWith("/#")) {
     const id = to.slice(2);
     return (
-      <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} className="inline-block">
+      <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.96 }} className="inline-block">
         <a
           href={to}
           onClick={(e) => {
@@ -46,7 +46,7 @@ export function BrandLink({
     );
   }
   return (
-    <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} className="inline-block">
+    <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.96 }} className="inline-block">
       <Link
         to={to}
         className={classes}
