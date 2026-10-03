@@ -24,7 +24,7 @@ export function SiteFooter() {
             <Link to="/" className="flex items-center gap-2.5">
               <motion.img
                 src={logo}
-                alt="Sora Innovative Solution Logo"
+                alt="SoRa Innovative Solution brand mark"
                 className="h-10 w-10 rounded-xl object-contain ring-1 ring-primary/40"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 1 }}

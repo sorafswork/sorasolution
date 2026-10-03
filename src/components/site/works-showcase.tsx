@@ -226,7 +226,7 @@ export function WorksShowcase() {
               <div className="relative overflow-hidden aspect-[4/3]">
                 <img
                   src={p.img}
-                  alt={`${p.title} website mockup`}
+                  alt={`${p.title} website designed and developed by SoRa Innovative Solution`}
                   loading="lazy"
                   width={1200}
                   height={912}
@@ -274,7 +274,7 @@ export function WorksShowcase() {
             <motion.div
               role="dialog"
               aria-modal="true"
-              aria-label={active.title}
+              aria-label={`${active.title} project details`}
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, y: 40, scale: 0.94 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}

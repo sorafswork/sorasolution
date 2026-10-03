@@ -86,7 +86,7 @@ export function SiteNav() {
           <Link to="/" className="group flex items-center gap-2.5">
             <motion.img
               src={logo}
-              alt="Sora Innovative Solution Logo"
+              alt="SoRa Innovative Solution brand mark"
               width={40}
               height={40}
               className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 shrink-0 rounded-xl object-contain ring-1 ring-primary/40"

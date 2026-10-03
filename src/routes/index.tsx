@@ -95,6 +95,7 @@ function Hero() {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl font-display text-4xl font-bold leading-[1.02] md:text-6xl lg:text-7xl"
             >
+              <span className="sr-only">SoRa Innovative Solution — </span>
               Building Digital Experiences That{" "}
               <span className="text-shimmer">Inspire Growth.</span>
             </motion.h1>
@@ -107,8 +108,8 @@ function Hero() {
             >
               <span className="font-display text-xl md:text-2xl text-foreground">Your Vision. <span className="text-gradient-gold">Our Innovation.</span></span>
               <br />
-              Premium websites, branding, graphic design, and content strategies that
-              turn ambitious ideas into measurable growth.
+              Web development, UI/UX design, SEO and digital marketing for businesses
+              across Tamil Nadu — turning ambitious ideas into measurable growth.
             </motion.p>
 
             <motion.div
@@ -180,7 +181,7 @@ function ServicesPreview() {
       >
         <img
           src={servicesBanner}
-          alt="Premium digital services delivered end-to-end"
+          alt="Web development, UI/UX design and digital marketing services by SoRa Innovative Solution"
           width={1920}
           height={720}
           loading="lazy"
