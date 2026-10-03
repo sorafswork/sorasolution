@@ -54,7 +54,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="mx-auto max-w-7xl px-4 md:px-6 py-20">
+    <section aria-label="Contact SoRa Innovative Solution" className="mx-auto max-w-7xl px-4 md:px-6 py-20">
       <SectionHeader
         eyebrow="Contact"
         title={<>Send us your <span className="text-shimmer">project enquiry</span></>}

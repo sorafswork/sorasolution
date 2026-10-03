@@ -18,11 +18,12 @@ import { CinematicBackdrop } from "@/components/site/cinematic-backdrop";
 
 export const Route = createFileRoute("/")({
   head: () => {
+    const description =
+      "SoRa Innovative Solution is a web development and digital marketing company in Tamil Nadu offering website design, UI/UX, SEO and social media marketing.";
     const seo = pageSeo({
       path: "/",
-      title: "SoRa Innovative Solution — Web Design, Branding & Digital Growth",
-      description:
-        "SoRa Innovative Solution builds premium websites, brand identities, graphic design and content that turn ambitious ideas into measurable business growth.",
+      title: "SoRa Innovative Solution | Web Development & Digital Marketing",
+      description,
     });
     return {
       ...seo,
@@ -31,13 +32,31 @@ export const Route = createFileRoute("/")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "SoRa Innovative Solution",
-            url: `${SITE_URL}/`,
-            logo: `${SITE_URL}/logo.png`,
-            email: "sorafs.work@gmail.com",
-            telephone: "+91 9500282415",
-            sameAs: ["https://instagram.com/sora.official.id", "https://github.com/sorafswork"],
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${SITE_URL}/#organization`,
+                name: "SoRa Innovative Solution",
+                url: `${SITE_URL}/`,
+                logo: `${SITE_URL}/logo.png`,
+                description,
+                email: "sorafs.work@gmail.com",
+                telephone: "+91 9500282415",
+                areaServed: ["Chennai", "Coimbatore", "Trichy", "Tamil Nadu, India"],
+                contactPoint: [
+                  { "@type": "ContactPoint", telephone: "+91 9500282415", contactType: "customer service", areaServed: "IN" },
+                  { "@type": "ContactPoint", telephone: "+91 7397732494", contactType: "sales", areaServed: "IN" },
+                ],
+                sameAs: ["https://instagram.com/sora.official.id", "https://github.com/sorafswork"],
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${SITE_URL}/#website`,
+                name: "SoRa Innovative Solution",
+                url: `${SITE_URL}/`,
+                publisher: { "@id": `${SITE_URL}/#organization` },
+              },
+            ],
           }),
         },
       ],
@@ -95,6 +114,7 @@ function Hero() {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl font-display text-4xl font-bold leading-[1.02] md:text-6xl lg:text-7xl"
             >
+              <span className="sr-only">SoRa Innovative Solution — </span>
               Building Digital Experiences That{" "}
               <span className="text-shimmer">Inspire Growth.</span>
             </motion.h1>
@@ -107,8 +127,8 @@ function Hero() {
             >
               <span className="font-display text-xl md:text-2xl text-foreground">Your Vision. <span className="text-gradient-gold">Our Innovation.</span></span>
               <br />
-              Premium websites, branding, graphic design, and content strategies that
-              turn ambitious ideas into measurable growth.
+              Web development, UI/UX design, SEO and digital marketing for businesses
+              across Tamil Nadu — turning ambitious ideas into measurable growth.
             </motion.p>
 
             <motion.div
@@ -180,7 +200,7 @@ function ServicesPreview() {
       >
         <img
           src={servicesBanner}
-          alt="Premium digital services delivered end-to-end"
+          alt="Web development, UI/UX design and digital marketing services by SoRa Innovative Solution"
           width={1920}
           height={720}
           loading="lazy"

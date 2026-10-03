@@ -28,7 +28,7 @@ function About() {
       <PageHero
         eyebrow="Who we are"
         title={<>A modern digital agency built for <span className="text-gradient-brand">growth</span>.</>}
-        subtitle="SoRa Innovative Solutions combines technology, creativity, and strategy to help businesses build strong online identities and grow with confidence."
+        subtitle="SoRa Innovative Solution combines technology, creativity, and strategy to help businesses build strong online identities and grow with confidence."
       />
       <section className="mx-auto max-w-6xl px-4 md:px-6 py-16">
         <div className="grid gap-6 md:grid-cols-3">

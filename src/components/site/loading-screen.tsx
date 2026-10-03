@@ -119,12 +119,12 @@ export function LoadingScreen() {
               >
                 <img
                   src={logo}
-                  alt="SoRa Innovative Solution"
+                  alt=""
                   className="h-16 w-16 object-contain drop-shadow-2xl md:h-20 md:w-20"
                 />
-                <h1 className="mt-4 font-display text-2xl font-bold text-foreground md:text-4xl">
+                <p className="mt-4 font-display text-2xl font-bold text-foreground md:text-4xl">
                   SoRa Innovative Solution
-                </h1>
+                </p>
                 <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-gold md:text-base">
                   Building Digital Growth. Creating Smart Solutions.
                 </p>
