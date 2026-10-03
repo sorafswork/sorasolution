@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
                 telephone: "+91 9500282415",
                 areaServed: ["Chennai", "Coimbatore", "Trichy", "Tamil Nadu, India"],
                 contactPoint: [
-                  { "@type": "ContactPoint", telephone: "+91 9500282415", contactType: "customer service", areaServed: "IN", availableLanguage: ["English", "Tamil"] },
+                  { "@type": "ContactPoint", telephone: "+91 9500282415", contactType: "customer service", areaServed: "IN" },
                   { "@type": "ContactPoint", telephone: "+91 7397732494", contactType: "sales", areaServed: "IN" },
                 ],
                 sameAs: ["https://instagram.com/sora.official.id", "https://github.com/sorafswork"],
