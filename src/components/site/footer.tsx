@@ -35,8 +35,9 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed">
-              A premium digital agency crafting websites, branding, graphic design, and
-              content that drives measurable growth for startups and businesses.
+              SoRa Innovative Solution is a web development and digital marketing company
+              in Tamil Nadu, crafting websites, UI/UX, branding and SEO that drive
+              measurable growth for businesses in Chennai, Coimbatore, Trichy and beyond.
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
