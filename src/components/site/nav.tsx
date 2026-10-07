@@ -1,9 +1,18 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useEffect, useState } from "react";
-import { Menu, X, Gift, ArrowRight } from "lucide-react";
+import { Menu, X, Gift, ArrowRight, ChevronDown } from "lucide-react";
 const logo = "/logo.png";
 import { cn } from "@/lib/utils";
+
+export const SERVICE_LINKS = [
+  { to: "/website-development", label: "Website Development" },
+  { to: "/graphic-design", label: "Graphic Design" },
+  { to: "/brand-identity", label: "Brand Identity" },
+  { to: "/content-writing", label: "Content Writing" },
+  { to: "/digital-marketing", label: "Digital Marketing" },
+  { to: "/seo", label: "SEO" },
+] as const;
 
 export const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -52,6 +61,7 @@ function useActiveSection() {
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 20));
