@@ -233,24 +233,76 @@ export function SiteNav() {
             className="lg:hidden mt-2 glass-card rounded-2xl border p-3"
           >
             <div className="grid gap-1">
-              {NAV_LINKS.map((l) => (
-                <a
-                  key={l.id}
-                  href={`/#${l.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    go(l.id);
-                  }}
-                  className={cn(
-                    "block rounded-xl px-3 py-2 text-sm font-medium",
-                    pathname === "/" && activeSection === l.id
-                      ? "bg-primary/15 text-foreground"
-                      : "text-muted-foreground hover:bg-muted",
-                  )}
-                >
-                  {l.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((l) =>
+                l.id === "services" ? (
+                  <div key={l.id}>
+                    <div className="flex items-center gap-1">
+                      <a
+                        href="/#services"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          go(l.id);
+                        }}
+                        className={cn(
+                          "flex-1 rounded-xl px-3 py-2 text-sm font-medium",
+                          pathname === "/" && activeSection === l.id
+                            ? "bg-primary/15 text-foreground"
+                            : "text-muted-foreground hover:bg-muted",
+                        )}
+                      >
+                        {l.label}
+                      </a>
+                      <button
+                        onClick={() => setServicesOpen((v) => !v)}
+                        aria-label="Toggle services menu"
+                        aria-expanded={servicesOpen}
+                        className="button-motion rounded-xl p-2 text-muted-foreground hover:bg-muted"
+                      >
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform duration-200",
+                            servicesOpen && "rotate-180",
+                          )}
+                        />
+                      </button>
+                    </div>
+                    {servicesOpen && (
+                      <div className="ml-3 mt-1 grid gap-1 border-l border-border pl-3">
+                        {SERVICE_LINKS.map((s) => (
+                          <Link
+                            key={s.to}
+                            to={s.to}
+                            onClick={() => {
+                              setOpen(false);
+                              setServicesOpen(false);
+                            }}
+                            className="block rounded-xl px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                          >
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    key={l.id}
+                    href={`/#${l.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      go(l.id);
+                    }}
+                    className={cn(
+                      "block rounded-xl px-3 py-2 text-sm font-medium",
+                      pathname === "/" && activeSection === l.id
+                        ? "bg-primary/15 text-foreground"
+                        : "text-muted-foreground hover:bg-muted",
+                    )}
+                  >
+                    {l.label}
+                  </a>
+                ),
+              )}
               <button
                 onClick={() => {
                   setOpen(false);
