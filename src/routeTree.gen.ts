@@ -9,43 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorksRouteImport } from './routes/works'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContentWritingRouteImport } from './routes/content-writing'
+import { Route as DigitalMarketingRouteImport } from './routes/digital-marketing'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as GraphicDesignRouteImport } from './routes/graphic-design'
+import { Route as SeoRouteImport } from './routes/seo'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as WebsiteDevelopmentRouteImport } from './routes/website-development'
+import { Route as WorksRouteImport } from './routes/works'
 
-const WorksRoute = WorksRouteImport.update({
-  id: '/works',
-  path: '/works',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -53,41 +34,114 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BrandIdentityRoute = BrandIdentityRouteImport.update({
+  id: '/brand-identity',
+  path: '/brand-identity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentWritingRoute = ContentWritingRouteImport.update({
+  id: '/content-writing',
+  path: '/content-writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalMarketingRoute = DigitalMarketingRouteImport.update({
+  id: '/digital-marketing',
+  path: '/digital-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GraphicDesignRoute = GraphicDesignRouteImport.update({
+  id: '/graphic-design',
+  path: '/graphic-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoRoute = SeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebsiteDevelopmentRoute = WebsiteDevelopmentRouteImport.update({
+  id: '/website-development',
+  path: '/website-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorksRoute = WorksRouteImport.update({
+  id: '/works',
+  path: '/works',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/content-writing': typeof ContentWritingRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
   '/faq': typeof FaqRoute
+  '/graphic-design': typeof GraphicDesignRoute
+  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/website-development': typeof WebsiteDevelopmentRoute
   '/works': typeof WorksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/content-writing': typeof ContentWritingRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
   '/faq': typeof FaqRoute
+  '/graphic-design': typeof GraphicDesignRoute
+  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/website-development': typeof WebsiteDevelopmentRoute
   '/works': typeof WorksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/content-writing': typeof ContentWritingRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
   '/faq': typeof FaqRoute
+  '/graphic-design': typeof GraphicDesignRoute
+  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/website-development': typeof WebsiteDevelopmentRoute
   '/works': typeof WorksRoute
 }
 export interface FileRouteTypes {
@@ -95,87 +149,76 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/brand-identity'
     | '/contact'
+    | '/content-writing'
+    | '/digital-marketing'
     | '/faq'
+    | '/graphic-design'
+    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/website-development'
     | '/works'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/brand-identity'
     | '/contact'
+    | '/content-writing'
+    | '/digital-marketing'
     | '/faq'
+    | '/graphic-design'
+    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/website-development'
     | '/works'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/brand-identity'
     | '/contact'
+    | '/content-writing'
+    | '/digital-marketing'
     | '/faq'
+    | '/graphic-design'
+    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/website-development'
     | '/works'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BrandIdentityRoute: typeof BrandIdentityRoute
   ContactRoute: typeof ContactRoute
+  ContentWritingRoute: typeof ContentWritingRoute
+  DigitalMarketingRoute: typeof DigitalMarketingRoute
   FaqRoute: typeof FaqRoute
+  GraphicDesignRoute: typeof GraphicDesignRoute
+  SeoRoute: typeof SeoRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  WebsiteDevelopmentRoute: typeof WebsiteDevelopmentRoute
   WorksRoute: typeof WorksRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/works': {
-      id: '/works'
-      path: '/works'
-      fullPath: '/works'
-      preLoaderRoute: typeof WorksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -185,11 +228,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/brand-identity': {
+      id: '/brand-identity'
+      path: '/brand-identity'
+      fullPath: '/brand-identity'
+      preLoaderRoute: typeof BrandIdentityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content-writing': {
+      id: '/content-writing'
+      path: '/content-writing'
+      fullPath: '/content-writing'
+      preLoaderRoute: typeof ContentWritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-marketing': {
+      id: '/digital-marketing'
+      path: '/digital-marketing'
+      fullPath: '/digital-marketing'
+      preLoaderRoute: typeof DigitalMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/graphic-design': {
+      id: '/graphic-design'
+      path: '/graphic-design'
+      fullPath: '/graphic-design'
+      preLoaderRoute: typeof GraphicDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo': {
+      id: '/seo'
+      path: '/seo'
+      fullPath: '/seo'
+      preLoaderRoute: typeof SeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/website-development': {
+      id: '/website-development'
+      path: '/website-development'
+      fullPath: '/website-development'
+      preLoaderRoute: typeof WebsiteDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/works': {
+      id: '/works'
+      path: '/works'
+      fullPath: '/works'
+      preLoaderRoute: typeof WorksRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -198,11 +318,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BrandIdentityRoute: BrandIdentityRoute,
   ContactRoute: ContactRoute,
+  ContentWritingRoute: ContentWritingRoute,
+  DigitalMarketingRoute: DigitalMarketingRoute,
   FaqRoute: FaqRoute,
+  GraphicDesignRoute: GraphicDesignRoute,
+  SeoRoute: SeoRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
+  WebsiteDevelopmentRoute: WebsiteDevelopmentRoute,
   WorksRoute: WorksRoute,
 }
 export const routeTree = rootRouteImport

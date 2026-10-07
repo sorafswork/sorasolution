@@ -1,9 +1,18 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useEffect, useState } from "react";
-import { Menu, X, Gift, ArrowRight } from "lucide-react";
+import { Menu, X, Gift, ArrowRight, ChevronDown } from "lucide-react";
 const logo = "/logo.png";
 import { cn } from "@/lib/utils";
+
+export const SERVICE_LINKS = [
+  { to: "/website-development", label: "Website Development" },
+  { to: "/graphic-design", label: "Graphic Design" },
+  { to: "/brand-identity", label: "Brand Identity" },
+  { to: "/content-writing", label: "Content Writing" },
+  { to: "/digital-marketing", label: "Digital Marketing" },
+  { to: "/seo", label: "SEO" },
+] as const;
 
 export const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -52,6 +61,7 @@ function useActiveSection() {
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 20));
@@ -102,6 +112,55 @@ export function SiteNav() {
           <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((l) => {
               const active = pathname === "/" && activeSection === l.id;
+              if (l.id === "services") {
+                return (
+                  <div key={l.id} className="group relative">
+                    <motion.div whileHover={{ y: -3, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
+                      <a
+                        href="/#services"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          go("services");
+                        }}
+                        aria-haspopup="true"
+                        className={cn(
+                          "group relative flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-full transition-colors",
+                          active
+                            ? "text-foreground"
+                            : "text-muted-foreground hover:text-foreground",
+                        )}
+                      >
+                        {active && (
+                          <motion.span
+                            layoutId="nav-active"
+                            className="absolute inset-0 rounded-full bg-primary/20 ring-1 ring-primary/40 shadow-[0_0_22px_-4px_oklch(0.55_0.22_264/0.9)]"
+                            transition={{ type: "spring", stiffness: 320, damping: 28 }}
+                          />
+                        )}
+                        <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 transition-opacity group-hover:opacity-100" />
+                        <span className="relative flex items-center gap-1">
+                          {l.label}
+                          <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                        </span>
+                        <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold to-transparent transition-all duration-300 group-hover:w-2/3" />
+                      </a>
+                    </motion.div>
+                    <div className="invisible absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                      <div className="glass-card rounded-2xl border border-border p-2 shadow-glow-blue">
+                        {SERVICE_LINKS.map((s) => (
+                          <Link
+                            key={s.to}
+                            to={s.to}
+                            className="block rounded-xl px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+                          >
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
               return (
                 <motion.div key={l.id} whileHover={{ y: -3, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
                   <a
@@ -174,24 +233,76 @@ export function SiteNav() {
             className="lg:hidden mt-2 glass-card rounded-2xl border p-3"
           >
             <div className="grid gap-1">
-              {NAV_LINKS.map((l) => (
-                <a
-                  key={l.id}
-                  href={`/#${l.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    go(l.id);
-                  }}
-                  className={cn(
-                    "block rounded-xl px-3 py-2 text-sm font-medium",
-                    pathname === "/" && activeSection === l.id
-                      ? "bg-primary/15 text-foreground"
-                      : "text-muted-foreground hover:bg-muted",
-                  )}
-                >
-                  {l.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((l) =>
+                l.id === "services" ? (
+                  <div key={l.id}>
+                    <div className="flex items-center gap-1">
+                      <a
+                        href="/#services"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          go(l.id);
+                        }}
+                        className={cn(
+                          "flex-1 rounded-xl px-3 py-2 text-sm font-medium",
+                          pathname === "/" && activeSection === l.id
+                            ? "bg-primary/15 text-foreground"
+                            : "text-muted-foreground hover:bg-muted",
+                        )}
+                      >
+                        {l.label}
+                      </a>
+                      <button
+                        onClick={() => setServicesOpen((v) => !v)}
+                        aria-label="Toggle services menu"
+                        aria-expanded={servicesOpen}
+                        className="button-motion rounded-xl p-2 text-muted-foreground hover:bg-muted"
+                      >
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform duration-200",
+                            servicesOpen && "rotate-180",
+                          )}
+                        />
+                      </button>
+                    </div>
+                    {servicesOpen && (
+                      <div className="ml-3 mt-1 grid gap-1 border-l border-border pl-3">
+                        {SERVICE_LINKS.map((s) => (
+                          <Link
+                            key={s.to}
+                            to={s.to}
+                            onClick={() => {
+                              setOpen(false);
+                              setServicesOpen(false);
+                            }}
+                            className="block rounded-xl px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                          >
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    key={l.id}
+                    href={`/#${l.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      go(l.id);
+                    }}
+                    className={cn(
+                      "block rounded-xl px-3 py-2 text-sm font-medium",
+                      pathname === "/" && activeSection === l.id
+                        ? "bg-primary/15 text-foreground"
+                        : "text-muted-foreground hover:bg-muted",
+                    )}
+                  >
+                    {l.label}
+                  </a>
+                ),
+              )}
               <button
                 onClick={() => {
                   setOpen(false);
