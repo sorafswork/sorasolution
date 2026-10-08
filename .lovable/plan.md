@@ -1,18 +1,14 @@
-# Cinematic Front Page and Button Motion
+# SEO Page Cinematic Experience
 
 ## Goal
-Make the first screen feel like a premium, realistic development studio rather than an abstract template.
+Replace only the existing `/seo` placeholder with a self-contained cinematic SEO mini-site, leaving every other page and the shared site experience unchanged.
 
-## Changes
-- Replace the current abstract hero background effects with a full-bleed cinematic video showing the SoRa client journey and digital work.
-- Keep the headline and calls to action clearly readable over the footage with a restrained dark film treatment.
-- Remove the separate mockup panel from the first screen so the video becomes the main visual experience.
-- Add polished motion to every button and call-to-action: subtle lift, light sweep, icon movement, press feedback, and accessible keyboard focus.
-- Animate the hero copy with a clean staggered entrance and add a restrained scroll cue.
-- Respect reduced-motion settings by using a still frame and disabling nonessential movement.
-- Preserve all existing page sections, content, colors, navigation, SEO, and functionality.
+## Build
+- Create the 100vh hero with a dark cinematic fallback and the literal `[SEO CINEMATIC VIDEO]` placeholder; do not add video or imagery.
+- Add the SEO-only horizontal/scrollable section navigation, search-to-enquiry flow, discoverability, gains, services, responsive process timeline, visibility/reporting mockups, conceptual before/after, opportunity map, future media slots, FAQ, and contact CTA.
+- Build one reusable browser mockup within the SEO page and reuse it for all screenshot/dashboard placeholders. Use no fabricated screenshots, rankings, or metrics.
+- Keep colors, layout, and motion isolated to this page; use CSS-only motion and honor reduced-motion preferences. Keep headings, links, and FAQ accessible.
+- Preserve the existing page-specific SEO metadata and add no other page functionality or content changes.
 
 ## Technical details
-- Reuse the existing client-journey video asset already stored with the project.
-- Update the home hero, shared link/button styling, and global motion utilities only.
-- Verify desktop and mobile rendering, button interactions, video playback fallback, and the final build.
+Implement within `src/routes/seo.tsx` only, with page-scoped styles and a reusable local browser-frame renderer. Use existing design tokens and links; no new packages, assets, or video.
