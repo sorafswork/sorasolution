@@ -17,7 +17,6 @@ import { Route as ContentWritingRouteImport } from './routes/content-writing'
 import { Route as DigitalMarketingRouteImport } from './routes/digital-marketing'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GraphicDesignRouteImport } from './routes/graphic-design'
-import { Route as SeoRouteImport } from './routes/seo'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
@@ -64,11 +63,6 @@ const GraphicDesignRoute = GraphicDesignRouteImport.update({
   path: '/graphic-design',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SeoRoute = SeoRouteImport.update({
-  id: '/seo',
-  path: '/seo',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -104,7 +98,6 @@ export interface FileRoutesByFullPath {
   '/digital-marketing': typeof DigitalMarketingRoute
   '/faq': typeof FaqRoute
   '/graphic-design': typeof GraphicDesignRoute
-  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
@@ -120,7 +113,6 @@ export interface FileRoutesByTo {
   '/digital-marketing': typeof DigitalMarketingRoute
   '/faq': typeof FaqRoute
   '/graphic-design': typeof GraphicDesignRoute
-  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
@@ -137,7 +129,6 @@ export interface FileRoutesById {
   '/digital-marketing': typeof DigitalMarketingRoute
   '/faq': typeof FaqRoute
   '/graphic-design': typeof GraphicDesignRoute
-  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
@@ -155,7 +146,6 @@ export interface FileRouteTypes {
     | '/digital-marketing'
     | '/faq'
     | '/graphic-design'
-    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/testimonials'
@@ -171,7 +161,6 @@ export interface FileRouteTypes {
     | '/digital-marketing'
     | '/faq'
     | '/graphic-design'
-    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/testimonials'
@@ -187,7 +176,6 @@ export interface FileRouteTypes {
     | '/digital-marketing'
     | '/faq'
     | '/graphic-design'
-    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/testimonials'
@@ -204,7 +192,6 @@ export interface RootRouteChildren {
   DigitalMarketingRoute: typeof DigitalMarketingRoute
   FaqRoute: typeof FaqRoute
   GraphicDesignRoute: typeof GraphicDesignRoute
-  SeoRoute: typeof SeoRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
@@ -270,13 +257,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GraphicDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/seo': {
-      id: '/seo'
-      path: '/seo'
-      fullPath: '/seo'
-      preLoaderRoute: typeof SeoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -324,7 +304,6 @@ const rootRouteChildren: RootRouteChildren = {
   DigitalMarketingRoute: DigitalMarketingRoute,
   FaqRoute: FaqRoute,
   GraphicDesignRoute: GraphicDesignRoute,
-  SeoRoute: SeoRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
